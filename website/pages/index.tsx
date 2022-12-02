@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+// Tests with animations in TS
+import {BloomingFlowers} from './animations/flowers'
+
 
 export default function Home() {
   return (
@@ -20,6 +23,8 @@ export default function Home() {
           What do you want to print?
         </p>
 
+        <div id='test-animations'>
+        </div>
       </main>
 
       <footer className={styles.footer}>
