@@ -3,9 +3,18 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 // Tests with animations in TS
 import {BloomingFlowers} from './animations/flowers'
+// Article can be found here: https://www.freecodecamp.org/news/how-to-compose-canvas-animations-in-typescript-9368dfa29028/
+// Code can be found here: https://stackblitz.com/edit/canvas-flower-blooming?file=index.ts
+
+// The original call:
+// const canvas = document.getElementById('flower');
+// const flowers = new BloomingFlowers(canvas);
+// flowers.bloom();
 
 
 export default function Home() {
+  const flowers = new BloomingFlowers(document.getElementById("flowers"));
+  flowers.bloom();
   return (
     <div className={styles.container}>
       <Head>
@@ -23,7 +32,9 @@ export default function Home() {
           What do you want to print?
         </p>
 
-        <div id='test-animations'>
+        <div id='test-animation'>
+          Here are the animations
+          <canvas id='flowers'></canvas>
         </div>
       </main>
 
