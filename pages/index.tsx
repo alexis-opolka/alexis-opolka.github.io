@@ -13,8 +13,6 @@ import {BloomingFlowers} from './animations/flowers'
 
 
 export default function Home() {
-  const flowers = new BloomingFlowers(document.getElementById("flowers"));
-  flowers.bloom();
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +27,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          What do you want to print?
+          What do you want to print? <a href="./pages/animations/threejs.jsx">Access the test page</a>
         </p>
 
         <div id='test-animation'>
