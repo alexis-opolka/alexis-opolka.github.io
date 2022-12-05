@@ -1,22 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-// Tests with animations in TS
-import {BloomingFlowers} from './animations/flowers'
-// Article can be found here: https://www.freecodecamp.org/news/how-to-compose-canvas-animations-in-typescript-9368dfa29028/
-// Code can be found here: https://stackblitz.com/edit/canvas-flower-blooming?file=index.ts
-
-// The original call:
-// const canvas = document.getElementById('flower');
-// const flowers = new BloomingFlowers(canvas);
-// flowers.bloom();
 
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Alexis Opolka's website</title>
+        <title>Alexis Opolka&apos;s website</title>
         <meta name="description" content="Welcome on Alexis Opolka's website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -27,13 +18,8 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          What do you want to print? <a href="./pages/animations/threejs.jsx">Access the test page</a>
+          What do you want to print?
         </p>
-
-        <div id='test-animation'>
-          Here are the animations
-          <canvas id='flowers'></canvas>
-        </div>
       </main>
 
       <footer className={styles.footer}>
