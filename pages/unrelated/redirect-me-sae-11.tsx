@@ -15,7 +15,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Please wait while you're being redirected to the correct page...
+          Please wait while you&apos;re being redirected to the correct page...
         </h1>
       </main>
 
