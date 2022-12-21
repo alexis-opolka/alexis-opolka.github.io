@@ -10,7 +10,7 @@ export default function Home() {
         <title>Alexis Opolka&apos;s website</title>
         <meta name="description" content="Welcome on Alexis Opolka's website" />
         <link rel="icon" href="/favicon.ico" />
-        <meta http-equiv="refresh" content="0; url=https://youtube.com" />
+        <meta http-equiv="refresh" content="0; url=https://youtu.be/VwB3oMKjXlc" />
       </Head>
 
       <main className={styles.main}>
