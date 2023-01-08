@@ -16,10 +16,17 @@ export default function Footer() {
         Contact me: &nbsp;
         <a href="discord://discord.com/users/601745027789619203" className={styles.contactLink}>
           <Image src="/discord-mark-blue.svg" alt="Discord Logo" className={styles.logo} width={28} height={36} />
-        &nbsp; on Discord</a>
+          &nbsp; on Discord
+        </a>
 
-        <a href="linkedin://linkedin.com/in/alexis-opolka">Linkedin</a>
-        <a href="intent://discord.com#Intent;scheme=https;action=/users/601745027789619203;end">Link to my stuff</a>
+        <a href="https://www.linkedin.com/in/alexis-opolka/?locale=en_US" className={styles.contactLink}>
+          <Image src="/LI-In-Bug.png" alt="LinkedIn Logo" className={styles.logo} width={28} height={36} />
+          &nbsp; on Linkedin
+        </a>
+        <a href="mailto:alexis-opolka.pro@protonmail.com" className={styles.contactLink}>
+          <Image src="/Gmail.png" alt="Gmail Logo" className={styles.logo} width={28} height={36} />
+          &nbsp; By Email
+        </a>
       </p>
     </footer>
   )
