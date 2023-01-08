@@ -19,6 +19,7 @@ export default function Footer() {
         &nbsp; on Discord</a>
 
         <a href="linkedin://linkedin.com/in/alexis-opolka">Linkedin</a>
+        <a href="intent://discord.com#Intent;scheme=discord_redirect;action=/users/601745027789619203;end">Link to my stuff</a>
       </p>
     </footer>
   )
