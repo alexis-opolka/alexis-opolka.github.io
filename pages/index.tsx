@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import animations from '../styles/animations.module.css'
 
 
 export default function Home() {
@@ -12,14 +13,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main id={animations.content} className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to my Portfolio!
+          Welcome to my <a id={animations.homeLink} href="./about">Portfolio</a>!
+          <hr id={animations.homeBar} />
         </h1>
 
-        <p className={styles.description}>
-          What do you want to print?
-        </p>
+        <div className={styles.description && animations.content}>
+          <div className={animations.content__container}>
+            <p className={animations.content__container__text}>
+              What to print:
+            </p>
+
+            <ul className={animations.content__container__list}>
+              <li className={animations.content__container__list__item}>a life</li>
+              <li className={animations.content__container__list__item}>a student</li>
+              <li className={animations.content__container__list__item}>a career</li>
+              <li className={animations.content__container__list__item}>a portfolio</li>
+            </ul>
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
