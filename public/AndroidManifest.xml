@@ -1,4 +1,4 @@
 <intent-filter>
-    <data android:scheme="discord_redirect" android:host="discord.com"/>
+    <data android:scheme="https" android:host="discord.com"/>
     <action android:name="android.intent.action.VIEW" />
 </intent-filter>
