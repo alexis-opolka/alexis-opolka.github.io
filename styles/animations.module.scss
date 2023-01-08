@@ -1,10 +1,11 @@
 $mainLinkColor: rgb(233, 130, 12);
 
 #homeBar {
+  background-color: $mainLinkColor;
   color: $mainLinkColor;
   position: relative;
   animation-name: slidein;
-  animation-duration: 3s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 }
 #homeLink {
@@ -36,9 +37,40 @@ $mainLinkColor: rgb(233, 130, 12);
 @keyframes slidein {
   from {
     width: 0%;
+    background-color: $mainLinkColor;
+    color: $mainLinkColor;
   }
   to {
+    width: 0%;
+    background-color: $mainLinkColor;
+    color: $mainLinkColor;
+  }
+  0% {
+    width: 0%;
+  }
+  1% {
+    width: 2.5%;
+  }
+  3% {
+    width: 7.5%;
+  }
+  5% {
+    width: 12.5%;
+  }
+  5%, 12.5% {
+    width: 25%;
+  }
+  12.5%, 25% {
+    width: 50%;
+  }
+  25%, 50% {
     width: 100%;
+  }
+  50%, 75% {
+    width: 50%;
+  }
+  75%, 100% {
+    width: 0%;
   }
 }
 
@@ -67,6 +99,20 @@ Animation on Text rolling
     overflow: hidden;
     height: 40px;
     padding: 0 40px;
+
+    &:after {
+      content: '?';
+      position: absolute;
+      right: 0;
+    }
+
+    &:after,
+    &:before {
+      position: absolute;
+      top: 0;
+      font-size: 42px;
+      line-height: 40px;
+    }
 
     &__text {
       display: inline;
