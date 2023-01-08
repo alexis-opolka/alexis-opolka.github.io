@@ -14,7 +14,7 @@ export default function Footer() {
       </p>
       <p>
         Contact me: &nbsp;
-        <a href="${{secrets.DISCORD_CONTACT_URI}}" className={styles.contactLink}>
+        <a href="discord://discord.com/users/601745027789619203" className={styles.contactLink}>
           <Image src="/discord-mark-blue.svg" alt="Discord Logo" className={styles.logo} width={28} height={36} />
         &nbsp; on Discord</a>
 
