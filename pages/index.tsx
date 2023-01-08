@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Footer from './footer'
 import styles from '../styles/Home.module.css'
 import animations from '../styles/animations.module.css'
 
@@ -35,9 +36,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        Developed by &nbsp;<span><a href="https://github.com/alexis-opolka/">Alexis Opolka</a></span> &nbsp; using &nbsp; <span><a href="https://nextjs.org">Next.js</a></span>
-      </footer>
+      <Footer />
     </div>
   )
 }

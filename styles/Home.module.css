@@ -22,11 +22,21 @@
   align-items: center;
 }
 
-.footer a {
+.footer p {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+}
+.footer hr {
+  width: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.contactLink {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
 }
 
 .title {
@@ -95,7 +105,7 @@
 
 .logo {
   height: 1em;
-  margin-left: 0.5rem;
+  width: fit-content;
 }
 
 @media (max-width: 600px) {
