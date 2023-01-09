@@ -1,3 +1,6 @@
+$mainLinkColor: rgb(233, 130, 12);
+
+
 .container {
   padding: 0 2rem;
 }
@@ -27,7 +30,6 @@
   align-items: center;
   flex-grow: 1;
 }
-
 .footer hr {
   width: 1%;
   margin-left: 1%;
@@ -61,7 +63,8 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -104,8 +107,6 @@
 
 .logo {
   height: 1em;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -115,9 +116,10 @@
     flex-direction: column;
   }
 }
+
 @media (prefers-color-scheme: dark) {
   .card,
-.footer {
+  .footer {
     border-color: #222;
   }
   .code {
@@ -127,7 +129,9 @@
     filter: invert(1);
   }
 }
+
+
 .underlined {
-  color: rgb(233, 130, 12);
+  color: $mainLinkColor;
   font-size: 25px;
-}/*# sourceMappingURL=Home.module.css.map */
+}

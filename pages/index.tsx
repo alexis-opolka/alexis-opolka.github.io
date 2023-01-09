@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Alexis Opolka&apos;s website</title>
+        <title>Welcome - Alexis Opolka Portfolio</title>
         <meta name="description" content="Welcome on Alexis Opolka's website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
