@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gitgraph/react": "^1.6.0",
     "@react-three/drei": "^9.46.1",
     "@react-three/fiber": "^8.9.1",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.31.3",
     "three": "^0.147.0"
   },
   "devDependencies": {

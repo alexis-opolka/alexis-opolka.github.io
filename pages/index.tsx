@@ -16,7 +16,7 @@ export default function Home() {
 
       <main id={animations.content} className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to my <a id={animations.homeLink} href="./about">Portfolio</a>!
+          Welcome to my <a id={animations.homeLink} href="./en/about">Portfolio</a>!
           <hr id={animations.homeBar} />
         </h1>
 
