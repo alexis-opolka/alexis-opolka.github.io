@@ -280,7 +280,7 @@ $mainContentTitleFontSize: 1.3rem;
   margin-bottom: 1em;
   flex-direction: row;
 }
-.mainContent a {
+.mainContent a, .Link {
   color: $mainLinkColor;
   user-select: none;
   transition: 0.7s;
@@ -290,7 +290,7 @@ $mainContentTitleFontSize: 1.3rem;
   -o-transition: 0.7s;
 }
 
-.mainContent a:hover {
+.mainContent a:hover, .Link {
   color: $highLightColor;
   user-select: none;
 }

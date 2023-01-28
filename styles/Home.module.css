@@ -285,7 +285,7 @@
   flex-direction: row;
 }
 
-.mainContent a {
+.mainContent a, .Link {
   color: #e9820c;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -298,7 +298,7 @@
   -o-transition: 0.7s;
 }
 
-.mainContent a:hover {
+.mainContent a:hover, .Link {
   color: #1adaba;
   -webkit-user-select: none;
      -moz-user-select: none;
