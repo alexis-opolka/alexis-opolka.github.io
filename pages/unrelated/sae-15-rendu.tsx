@@ -45,7 +45,10 @@ export default function Home() {
                   (833 place disponible sur 1911 au total), donc sur la période de capture nous pouvons dire que le parking est surdimentioné par rapport a son utilisation. <br />
                   Sur un temps de capture plus long nous pourrions voir si le parking est plus utilisé. <br /><br />
 
-                  <iframe src="http://188.166.151.235:3000/d/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673391600000&to=1674082799000&theme=dark" width={1000} height={500} style={{ "borderRadius": "8px" }}></iframe>
+                  <iframe src="http://188.166.151.235:3000/d-solo/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000&panelId=10" width={1000} height={500} style={{ "borderRadius": "8px" }}></iframe>
+                  <iframe src="http://188.166.151.235:3000/d-solo/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000&panelId=16" width={1000} height={500} style={{ "borderRadius": "8px" }}></iframe>
+                  <iframe src="http://188.166.151.235:3000/d-solo/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000&panelId=2"  width={1000} height={500} style={{ "borderRadius": "8px" }}></iframe>
+                  <iframe src="http://188.166.151.235:3000/d-solo/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000&panelId=4"  width={1000} height={500} style={{ "borderRadius": "8px" }}></iframe>
                   <br />
                 </div>
               </div>
@@ -69,11 +72,33 @@ export default function Home() {
                   faire leurs courses ou seulement visiter avec la proximité du polygone de montpellier.  <br /><br />
 
                   <iframe src="http://188.166.151.235:3000/d-solo/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000&theme=dark&panelId=6" width={1000} height={500} style={{"borderRadius": "8px"}}></iframe>
+                  <iframe src="http://188.166.151.235:3000/d-solo/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000&panelId=18" width={1000} height={500} style={{ "borderRadius": "8px" }}></iframe>
 
                   <br />
                 </div>
               </div>
+              <div className={styles.mainContentTitle}>
+                <div className={styles.mainContentTitleText}>
+                  Dépots liés à la SAE-15
+                  <hr />
+                </div>
+              </div>
+              <div className={styles.mainContentUpperLeftContent}>
+                <div className={styles.mainContentUpperLeftContentText}>
+                  <br />
+                  Les dépots de la SAE-15 sont:
 
+                  <ul>
+                    <li>
+                      <Link href={"https://github.com/alexis-opolka/import-cours-but-rt"} target={"_blank"}>Import-Cours-BUT-RT</Link>
+                    </li>
+                    <li>
+                      <Link href={"https://github.com/alexis-opolka/SAE-15-DATA"} target={"_blank"}>SAE-15-DATA</Link>
+                    </li>
+                  </ul>
+                  <br />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -83,8 +108,3 @@ export default function Home() {
     </div>
   )
 }
-
-// API - key
-// eyJrIjoiVzJUeTloUkZVUmFMR1dkWXZPUHJkSmwyV3NTb1YzSlIiLCJuIjoiYWxleGlzLW9wb2xrYS5naXRodWIuaW8gLSBJbnRlZ3JhdGlvbiIsImlkIjoxfQ
-// cURL command
-// curl - H "Authorization: Bearer eyJrIjoiVzJUeTloUkZVUmFMR1dkWXZPUHJkSmwyV3NTb1YzSlIiLCJuIjoiYWxleGlzLW9wb2xrYS5naXRodWIuaW8gLSBJbnRlZ3JhdGlvbiIsImlkIjoxfQ==" http://188.166.151.235:3000/api/dashboards/home
