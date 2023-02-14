@@ -28,7 +28,10 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        Si, vous n&apos;arrivez pas à accéder aux graphs (i.e. rectangles blancs), vous pouvez accéder à la page <Link href={"http://188.166.151.235:3000/d/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000"} target={"_blank"} className={styles.Link}> en cliquant ici</Link>
+        Si, vous n&apos;arrivez pas à accéder aux graphs (i.e. rectangles blancs), vous pouvez accéder à la page
+        <Link href={"http://188.166.151.235:3000/d/IDst7IoVk/utilisation-des-parkings?orgId=1&from=1673902290000&to=1673968980000"} target={"_blank"} className={styles.Link}>
+          en cliquant ici
+        </Link>
         <div className={styles.mainContent}>
           <div className={styles.mainContentUpperPart}>
             <div className={styles.mainContentUpperLeft}>
