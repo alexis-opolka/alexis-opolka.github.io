@@ -3,13 +3,13 @@ import Image from 'next/image'
 import styles from 'styles/Home.module.css'
 import anim from 'styles/animations.module.css'
 import Footer from '../../footer'
-import GITHUB_TOKEN from '../../api/secrets'
+// import GITHUB_TOKEN from '../../api/secrets'
 
 function requestGraphQL(request: string) {
   var graphQlRequest = new Request('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
-      "Authorization": `Bearer ${GITHUB_TOKEN}`,
+      "Authorization": `Bearer ${process.env.TOKEN_GITHUB}`,
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
