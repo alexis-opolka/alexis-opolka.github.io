@@ -88,7 +88,7 @@ function ThemeToggleButton(){
 
       <Octicon icon={schemes[currentPrimerTheme].icon} size={20} />
 
-      <Box> The theme ({currentPrimerTheme}) is {schemes[currentPrimerTheme].name} </Box>
+      {/* <Box> The theme ({currentPrimerTheme}) is {schemes[currentPrimerTheme].name} </Box> */}
     </Button>
   )
 }
