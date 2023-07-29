@@ -1,95 +1,94 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
+
+// Import stylesheets, types and images
+import styles from '/public/stylesheets/master.module.css';
+import MarkGithubIcon from '@/app/content/img/github-mark-white.svg';
+import type {Icon} from "@primer/octicons-react";
+
+// NextJS Imports
+import { t } from '@lingui/macro';
+import { Box, PageLayout, Header, Octicon, Avatar, Link, Button, useTheme } from '@primer/react';
+import { SunIcon, MoonIcon} from "@primer/octicons-react";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Header sx={{
+      paddingBottom: 2,
+      borderBottomWidth: 1,
+      borderBottomColor: 'border.default',
+      borderBottomStyle: 'solid',
+    }}>
+      <Header.Item full sx={{textShadow: "shadow.medium"}}>Menu</Header.Item>
+      <Header.Item sx={{ mr: 0 }}>
+        <Header.Item sx={{mr: 2}}>
+          <ThemeToggleButton />
+        </Header.Item>
+        <Header.Item sx={{mr: 0}}>
+          <Avatar src="https://github.com/octocat.png" size={20} square alt="@octocat" />
+        </Header.Item>
+      </Header.Item>
+    </Header>
+  )
+}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+function ThemeToggleButton(){
+  const { setDayScheme, setNightScheme, setColorMode } = useTheme();
+  // Using a stateful variable to store the index of the current used scheme
+  const [currentPrimerTheme, setCurrentPrimerTheme] = useState(0);
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+  const schemes: {
+    name: string,
+    value: string,
+    icon: Icon,
+    preferred?: boolean | undefined
+  }[] = [
+    {
+      name: 'Light',
+      value: 'light',
+      icon: SunIcon
+    },
+    {
+      name: 'Dark',
+      value: 'dark',
+      icon: MoonIcon,
+      preferred: true,
+    },
+    {
+      name: 'Dark dimmed',
+      value: 'dark_dimmed',
+      icon: MoonIcon,
+    }
+  ];
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+  function toggleTheme(){
+    if (currentPrimerTheme === 0) {
+      setColorMode("dark");
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      // Now that we set the color mode to be dark,
+      // we need to know if the preferred theme is `Dark` (general GitHub dark theme)
+      // or `Dark dimmed`.
+      // In order to know, we use an argument called `preferred` to know which
+      // dark theme is preferred by the user.
+
+      setCurrentPrimerTheme(1);
+    } else {
+      setColorMode("light");
+
+      setCurrentPrimerTheme(0);
+    };
+    setDayScheme(schemes[currentPrimerTheme].value);
+    setNightScheme(schemes[currentPrimerTheme].value);
+  };
+
+  return(
+    <Button variant='invisible' onClick={toggleTheme}>
+
+      <Octicon icon={schemes[currentPrimerTheme].icon} size={20} />
+
+      <Box> The theme ({currentPrimerTheme}) is {schemes[currentPrimerTheme].name} </Box>
+    </Button>
   )
 }

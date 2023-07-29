@@ -1,0 +1,13 @@
+{
+  "greeting": {
+    "translation": "Bonjour le monde",
+    "message": "Hi people",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/page.tsx",
+        12
+      ]
+    ]
+  }
+}
