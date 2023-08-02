@@ -15,6 +15,9 @@ export const defaultLocale = "en";
  */
 export async function dynamicLoadNActivateLocale(locale: string){
   const { messages } = await import(`@/locales/${locale}/messages`);
+
   i18n.load(locale, messages);
   i18n.activate(locale);
+
+  console.log(`The current loaded locale is: ${i18n.locale}`);
 }

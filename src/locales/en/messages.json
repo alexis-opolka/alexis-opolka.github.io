@@ -8,6 +8,64 @@
         "src/app/page.tsx",
         12
       ]
+    ],
+    "obsolete": true
+  },
+  "NnH3pK": {
+    "translation": "Test",
+    "message": "Test",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/page.tsx",
+        24
+      ]
+    ],
+    "obsolete": true
+  },
+  "4BU84t": {
+    "translation": "This is a Test Content.",
+    "message": "This is a Test Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/test/page.tsx",
+        9
+      ]
     ]
+  },
+  "1YVQ0U": {
+    "translation": "This is the Footer Content.",
+    "message": "This is the Footer Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/layout.tsx",
+        62
+      ]
+    ]
+  },
+  "+sEpl0": {
+    "translation": "This is the main Content.",
+    "message": "This is the main Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/page.tsx",
+        13
+      ]
+    ]
+  },
+  "67i+Tc": {
+    "translation": "This is the Main Content.",
+    "message": "This is the Main Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/page.tsx",
+        24
+      ]
+    ],
+    "obsolete": true
   }
 }
