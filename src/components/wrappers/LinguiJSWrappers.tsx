@@ -1,5 +1,3 @@
-"use client"
-
 // NextJS
 import { FormControl, Select, Box } from "@primer/react";
 import { dynamicLoadNActivateLocale } from "@/headers/i18n";
