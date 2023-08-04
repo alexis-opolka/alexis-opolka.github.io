@@ -1,16 +1,25 @@
 "use client"
 
 // NextJS Imports
-import { t } from '@lingui/macro';
-import PortfolioHeader from '@/components/PortfolioHeader';
-import { Box, PageLayout } from '@primer/react';
+import { Box, Heading, Text } from '@primer/react';
+
+// Intern Imports
+import PhoneComponent from '@/components/phoneComponents/PhoneComponent';
 
 // Components Functions
 export default function Home() {
 
   return (
-    <Box>
-      {t`This is the main Content.`}
+    <Box sx={{
+      display: 'flex',
+      position: 'relative',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: 'inherit'
+    }}>
+      <Text>
+        <Heading as='h1' sx={{padding: "15px"}}>Welcome to my website!</Heading>
+      </Text>
     </Box>
   )
 }

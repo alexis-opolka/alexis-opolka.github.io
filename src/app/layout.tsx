@@ -18,9 +18,28 @@ import GithubPrimerWrapper from "@/components/wrappers/GithubPrimerWrappers";
 import PortfolioHeader from "@/components/PortfolioHeader";
 import { defaultLocale, dynamicLoadNActivateLocale } from "@/headers/i18n";
 import defaultMessages from "@/locales/en/messages";
+import DevDebugComponents from "@/components/wrappers/DevDebugWrappers";
+import PhoneComponent from "@/components/phoneComponents/PhoneComponent";
 
+// Variables
 const inter = Inter({ subsets: ['latin'] })
 
+// We set this variable to false as default
+// as it serves us to know if the `useEffect` hook
+// was called before rendering `I18nProvider` Component
+var isDefaultLocaleSet = false;
+// Dynamically call translations inside a `useEffect` React hook
+const I18nApp = () => {
+  useEffect(() => {
+    // With this method we should dynamically load the required locale
+    dynamicLoadNActivateLocale(defaultLocale);
+    console.log(isDefaultLocaleSet);
+    isDefaultLocaleSet = true;
+  }, [])
+}
+
+
+// Exports (Functions, Components, Variables/Constants)
 export const metadata: Metadata = {
   title: 'Alexis Opolka Portfolio',
   description: 'The website & portfolio of Alexis Opolka',
@@ -32,28 +51,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  // We set this variable to false as default
-  // as it serves us to know if the `useEffect` hook
-  // was called before rendering `I18nProvider` Component
-  var isDefaultLocaleSet = false;
-
-  // Dynamically call translations inside a `useEffect` React hook
-  const I18nApp = () => {
-    useEffect(() => {
-      // With this method we should dynamically load the required locale
-      dynamicLoadNActivateLocale(defaultLocale);
-      console.log(isDefaultLocaleSet);
-      isDefaultLocaleSet = true;
-    })
-  }
-
+  console.log(`[${Date.now()}] - Current locale: ${i18n.locale}, DefaultLocaleSet: ${isDefaultLocaleSet}`);
 
   // Workaround for `I18nProvider` Component not being activated
   // We set the locale and the messages by default
   if (!isDefaultLocaleSet) {
     i18n.load(defaultLocale, defaultMessages);
     i18n.activate(defaultLocale);
+    isDefaultLocaleSet = true;
   }
+
+  console.log(`[${Date.now()}] - Current locale: ${i18n.locale}, DefaultLocaleSet: ${isDefaultLocaleSet}`);
 
   return (
     <SSRProvider>
@@ -64,34 +72,66 @@ export default function RootLayout({
       */}
       <html className={`${styles.html}`}>
         <body className={`body ${inter.className} ${styles.bordered} ${styles.body}`}>
-          <NoSSR>
-            {/** The `NoSSR` custom element is present to avoid
-             * the SSR Tree Mismatch error because certain components
-             * such as `ThemeProvider` from `@primer/react` needs to be
-             * rendered client side and is therefore not included creating
-             * an SSR Tree mismatch error.
-             */}
-            <I18nProvider i18n={i18n}>
-              <GithubPrimerWrapper>
-                <PageLayout padding='condensed' containerWidth='full'>
-                  <PageLayout.Header>
+          <I18nProvider i18n={i18n}>
+            <NoSSR>
+              {/** The `NoSSR` custom element is present to avoid
+               * the SSR Tree Mismatch error because certain components
+               * such as `ThemeProvider` from `@primer/react` needs to be
+               * rendered client side and is therefore not included creating
+               * an SSR Tree mismatch error.
+               */}
+                <GithubPrimerWrapper>
+                  {/* <PageLayout padding='condensed' containerWidth='full'>
+                    <PageLayout.Header sx={{border: '1px solid', borderColor: 'border.default', position: 'sticky'}}>
+                      <PortfolioHeader />
+                    </PageLayout.Header>
+                    <PageLayout.Content sx={{
+                      border: "border.default",
+                      minHeight: "80%"
+                    }}>
+                      <Box sx={{ minHeight: "100vh" }}>
+                        {children}
+                      </Box>
+                    </PageLayout.Content>
+                    <PageLayout.Footer divider={"line"}>
+                    {t({ message: `This is the Footer Content.` })}
+                    </PageLayout.Footer>
+                  </PageLayout> */}
+                <Box sx={{ minHeight: "100vh", overflowY: 'auto', border: '1px solid', borderColor: 'border.default' }}>
+                  <Box
+                    sx={{
+                      position: 'sticky',
+                      top: 0,
+                      height: 64,
+                      placeItems: 'center',
+                      backgroundColor: 'canvas.subtle',
+                      borderBottom: '1px solid',
+                      borderColor: 'border.default',
+                      zIndex: 1,
+                    }}
+                  >
                     <PortfolioHeader />
-                  </PageLayout.Header>
-                  <PageLayout.Content sx={{
-                    border: "border.default",
-                    minHeight: "80%"
-                  }}>
-                    <Box sx={{ minHeight: "100vh" }}>
-                      {children}
-                    </Box>
-                  </PageLayout.Content>
-                  <PageLayout.Footer divider={"line"}>
-                    {t`This is the Footer Content.`}
-                  </PageLayout.Footer>
-                </PageLayout>
-              </GithubPrimerWrapper>
-            </I18nProvider>
-          </NoSSR>
+                  </Box>
+                  <PageLayout>
+                    <PageLayout.Pane sticky offsetHeader={64} width={"large"}>
+                      <PhoneComponent />
+                    </PageLayout.Pane>
+                    <PageLayout.Content sx={{
+                      border: "border.default",
+                      minHeight: "80%"
+                    }}>
+                      <Box sx={{ minHeight: "100vh" }}>
+                        {children}
+                      </Box>
+                    </PageLayout.Content>
+                    <PageLayout.Footer divider={"line"}>
+                      {t({ message: `This is the Footer Content.` })}
+                    </PageLayout.Footer>
+                  </PageLayout>
+                </Box>
+                </GithubPrimerWrapper>
+            </NoSSR>
+          </I18nProvider>
         </body>
       </html>
     </SSRProvider>
