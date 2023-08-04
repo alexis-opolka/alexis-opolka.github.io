@@ -1,28 +1,4 @@
 {
-  "greeting": {
-    "translation": "Hi people",
-    "message": "Hi people",
-    "comments": [],
-    "origin": [
-      [
-        "src/app/page.tsx",
-        12
-      ]
-    ],
-    "obsolete": true
-  },
-  "NnH3pK": {
-    "translation": "Test",
-    "message": "Test",
-    "comments": [],
-    "origin": [
-      [
-        "src/app/page.tsx",
-        24
-      ]
-    ],
-    "obsolete": true
-  },
   "4BU84t": {
     "translation": "This is a Test Content.",
     "message": "This is a Test Content.",
@@ -41,7 +17,7 @@
     "origin": [
       [
         "src/app/layout.tsx",
-        62
+        99
       ]
     ]
   },
@@ -55,17 +31,5 @@
         13
       ]
     ]
-  },
-  "67i+Tc": {
-    "translation": "This is the Main Content.",
-    "message": "This is the Main Content.",
-    "comments": [],
-    "origin": [
-      [
-        "src/app/page.tsx",
-        24
-      ]
-    ],
-    "obsolete": true
   }
 }
