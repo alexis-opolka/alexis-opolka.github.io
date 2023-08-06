@@ -80,7 +80,7 @@ export default function RootLayout({
                * rendered client side and is therefore not included creating
                * an SSR Tree mismatch error.
                */}
-                <GithubPrimerWrapper>
+              <GithubPrimerWrapper>
                   {/* <PageLayout padding='condensed' containerWidth='full'>
                     <PageLayout.Header sx={{border: '1px solid', borderColor: 'border.default', position: 'sticky'}}>
                       <PortfolioHeader />
@@ -112,15 +112,11 @@ export default function RootLayout({
                   >
                     <PortfolioHeader />
                   </Box>
-                  <PageLayout>
-                    <PageLayout.Pane sticky offsetHeader={64} width={"large"}>
-                      <PhoneComponent />
-                    </PageLayout.Pane>
+                  <PageLayout sx={{ overflow: "hidden" }}>
                     <PageLayout.Content sx={{
                       border: "border.default",
-                      minHeight: "80%"
                     }}>
-                      <Box sx={{ minHeight: "100vh" }}>
+                      <Box sx={{ minHeight: "100vh"}}>
                         {children}
                       </Box>
                     </PageLayout.Content>
@@ -129,7 +125,7 @@ export default function RootLayout({
                     </PageLayout.Footer>
                   </PageLayout>
                 </Box>
-                </GithubPrimerWrapper>
+              </GithubPrimerWrapper>
             </NoSSR>
           </I18nProvider>
         </body>

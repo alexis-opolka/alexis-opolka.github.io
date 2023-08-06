@@ -13,13 +13,19 @@ export default function Home() {
     <Box sx={{
       display: 'flex',
       position: 'relative',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: 'inherit'
+      justifyContent: 'center', // Flex Horizontal alignment
+      alignItems: 'center', // Flex Vertical alignment
+      minHeight: 'inherit',
+      flexDirection: 'row',
+      borderColor: "red",
+      border: "1px solid"
     }}>
-      <Text>
-        <Heading as='h1' sx={{padding: "15px"}}>Welcome to my website!</Heading>
-      </Text>
+      <Box sx={{border: "1px solid grey", padding: "15px", flexGrow: 1, minHeight: "100vh", minWidth: "50vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Heading as='h1' sx={{ padding: "15px" }}>Welcome to my website!</Heading>
+      </Box>
+      <Box sx={{ border: "1px solid blue", padding: "15px", flexGrow: 1, minHeight: "100vh", minWidth: "50vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <PhoneComponent />
+      </Box>
     </Box>
   )
 }

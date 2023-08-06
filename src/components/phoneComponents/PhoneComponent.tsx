@@ -1,22 +1,19 @@
 import { Box, PageLayout } from "@primer/react";
 import PortfolioHeader from '../PortfolioHeader';
+import PhoneContext from "./PhoneContext";
+import PhoneMockup from "@/content/img/Samsung Galaxy S21 5G — Black — Shadow.png"
+import Image from "next/image";
+import { relative } from "path";
 
 export default function PhoneComponent(){
   return(
-    <PageLayout columnGap="condensed" sx={{
-      border: "1px solid",
-      borderColor: "cyan",
-      minHeight: "80vh",
-      minWidth: "100%"
+    <Box sx={{
+      position: "relative",
+      textAlign: "center",
+      userSelect: "none",
     }}>
-      <PageLayout.Header sx={{
-        border: "1px solid",
-        borderColor: "border.default"
-      }}>
-        <Box>
-          Test Header
-        </Box>
-      </PageLayout.Header>
-    </PageLayout>
+      <Image src={PhoneMockup} alt="Samsung Galaxy S21 5G - Black" height={800} width={450} style={{zIndex: 10, width: "100%", position: "relative"}} draggable={false}/>
+      <PhoneContext/>
+    </Box>
   )
 }
