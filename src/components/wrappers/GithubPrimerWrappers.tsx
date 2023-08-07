@@ -5,7 +5,7 @@ export default function GithubPrimerWrapper({children}: {
 }){
 
   return(
-    <ThemeProvider colorMode={"day"}>
+    <ThemeProvider colorMode={"night"}>
       <BaseStyles>
         <Box sx={{bg: "canvas.default"}}>
           {children}
