@@ -1,0 +1,35 @@
+{
+  "4BU84t": {
+    "translation": "This is a Test Content.",
+    "message": "This is a Test Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/test/page.tsx",
+        9
+      ]
+    ]
+  },
+  "1YVQ0U": {
+    "translation": "This is the Footer Content.",
+    "message": "This is the Footer Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/layout.tsx",
+        99
+      ]
+    ]
+  },
+  "+sEpl0": {
+    "translation": "This is the main Content.",
+    "message": "This is the main Content.",
+    "comments": [],
+    "origin": [
+      [
+        "src/app/page.tsx",
+        13
+      ]
+    ]
+  }
+}

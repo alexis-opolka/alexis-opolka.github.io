@@ -1,32 +1,36 @@
 {
-  "name": "alexis-opolka.github.io",
-  "version": "0.2.0",
+  "name": "alexis-opolka.dev",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sass:watch": "sass --watch src/sass:public/stylesheets",
+    "lingui:extract": "lingui extract",
+    "lingui:compile": "lingui compile"
   },
   "dependencies": {
-    "@gitgraph/react": "^1.6.0",
-    "@react-three/drei": "^9.46.1",
-    "@react-three/fiber": "^8.9.1",
-    "graphql": "^16.6.0",
-    "next": "13.0.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sharp": "^0.31.3",
-    "three": "^0.147.0"
+    "@lingui/format-json": "^4.3.0",
+    "@lingui/react": "^4.3.0",
+    "@primer/react": "^35.26.1",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.17",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.12",
+    "next": "13.4.12",
+    "react": "^18.2.0",
+    "react-circle-flags": "^0.0.18",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "styled-components": "^5.3.11",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9",
-    "@types/three": "^0.146.0",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.3",
-    "sass": "^1.56.1",
-    "typescript": "4.8.4"
+    "@lingui/cli": "^4.3.0",
+    "@lingui/macro": "^4.3.0",
+    "@lingui/swc-plugin": "^4.0.4"
   }
 }
