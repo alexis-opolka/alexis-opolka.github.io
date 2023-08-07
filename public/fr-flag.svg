@@ -1,0 +1,6 @@
+<!--Draw the french flag in SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100">
+  <rect x="50" y="0" width="50" height="100" fill="#fff"/>
+  <rect x="0" y="0" width="50" height="100" fill="blue" fill-opacity="0.5"/>
+  <rect x="100" y="0" width="50" height="100" fill="#ce1126" fill-opacity="0.5"/>
+</svg>
