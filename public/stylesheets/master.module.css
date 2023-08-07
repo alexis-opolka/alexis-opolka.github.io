@@ -1,0 +1,13 @@
+.html {
+  height: 100%;
+}
+
+.body {
+  min-height: 100%;
+}
+
+.bordered {
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=master.module.css.map */
