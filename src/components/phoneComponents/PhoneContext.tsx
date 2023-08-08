@@ -1,9 +1,14 @@
-import NetworkStatus, { NetworkCarrier } from "@/components/phoneComponents/PhoneStatus/Network";
+// NextJS Imports
 import { Box, Text } from "@primer/react";
 import type { BetterSystemStyleObject } from "@primer/react/lib/sx";
-import BatteryInformation from "./PhoneStatus/Battery";
-import BluetoothStatus from "./PhoneStatus/Bluetooth";
-import NTPLocalTime from "./PhoneStatus/NTPComponents";
+import {MdKeyboardArrowLeft, MdOutlineHome, MdMenu} from "react-icons/md";
+
+// Internal imports
+import NetworkStatus, { NetworkCarrier } from "@/components/phoneComponents/PhoneStatus/Network";
+import BatteryInformation from "@/components/phoneComponents/PhoneStatus/Battery";
+import BluetoothStatus from "@/components/phoneComponents/PhoneStatus/Bluetooth";
+import NTPLocalTime from "@/components/phoneComponents/PhoneStatus/NTPComponents";
+
 
 
 /**
@@ -118,9 +123,27 @@ function PhoneContextControls(){
     <Box sx={{
       border: "1px solid green",
       flexGrow: 0.1,
-      width: "100%"
+      width: "100%",
+      display: "flex",
+      flexDirection: "row",
+      maxHeight: "7%",
+      marginBottom: "-4%"
     }}>
-      This should be the footer / controls
+      <Box sx={{
+        flexGrow: 1
+      }}>
+        <MdKeyboardArrowLeft size={40} />
+      </Box>
+      <Box sx={{
+        flexGrow: 1
+      }}>
+        <MdOutlineHome size={40} />
+      </Box>
+      <Box sx={{
+        flexGrow: 1
+      }}>
+        <MdMenu size={40} />
+      </Box>
     </Box>
   )
 }
