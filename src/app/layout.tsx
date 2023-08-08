@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 // NextJS imports
 import { Inter } from 'next/font/google'
-import { SSRProvider, PageLayout, Box } from "@primer/react";
+import { PageLayout, Box } from "@primer/react";
 import {t} from "@lingui/macro";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from '@lingui/core';
@@ -18,8 +18,6 @@ import GithubPrimerWrapper from "@/components/wrappers/GithubPrimerWrappers";
 import PortfolioHeader from "@/components/PortfolioHeader";
 import { defaultLocale, dynamicLoadNActivateLocale } from "@/headers/i18n";
 import defaultMessages from "@/locales/en/messages";
-import DevDebugComponents from "@/components/wrappers/DevDebugWrappers";
-import PhoneComponent from "@/components/phoneComponents/PhoneComponent";
 
 // Variables
 const inter = Inter({ subsets: ['latin'] })
