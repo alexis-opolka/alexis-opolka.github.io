@@ -8,6 +8,7 @@ import NetworkStatus, { NetworkCarrier } from "@/components/phoneComponents/Phon
 import BatteryInformation from "@/components/phoneComponents/PhoneStatus/Battery";
 import BluetoothStatus from "@/components/phoneComponents/PhoneStatus/Bluetooth";
 import NTPLocalTime from "@/components/phoneComponents/PhoneStatus/NTPComponents";
+import MessageAppWrapper from "@/components/phoneComponents/MessageApp/MessageWrapper";
 
 
 
@@ -80,7 +81,7 @@ function PhoneContextStatus(){
         flexGrow: 1,
         display: "flex",
         alignItems: "start",
-        marginLeft: 2
+        marginLeft: 3
       }}> <NTPLocalTime />
         &nbsp;{"|"}&nbsp;
         <NetworkCarrier />
@@ -105,11 +106,11 @@ function PhoneContextContent(){
 
   return(
     <Box sx={{
-      border: "1px solid cyan",
+      // border: "1px solid cyan",
       flexGrow: 3,
       width: "100%"
     }}>
-      This should be the Body
+      <MessageAppWrapper />
     </Box>
   )
 }
@@ -121,28 +122,30 @@ function PhoneContextControls(){
 
   return(
     <Box sx={{
-      border: "1px solid green",
+      // border: "1px solid green",
       flexGrow: 0.1,
       width: "100%",
       display: "flex",
       flexDirection: "row",
-      maxHeight: "7%",
-      marginBottom: "-4%"
+      maxHeight: "5%",
+      marginBottom: "-4%",
+      backgroundColor: "header.bg",
+      color: "header.text"
     }}>
       <Box sx={{
         flexGrow: 1
       }}>
-        <MdKeyboardArrowLeft size={40} />
+        <MdKeyboardArrowLeft size={30} />
       </Box>
       <Box sx={{
         flexGrow: 1
       }}>
-        <MdOutlineHome size={40} />
+        <MdOutlineHome size={30} />
       </Box>
       <Box sx={{
         flexGrow: 1
       }}>
-        <MdMenu size={40} />
+        <MdMenu size={30} />
       </Box>
     </Box>
   )

@@ -11,7 +11,7 @@ export default function PhoneComponent(){
       userSelect: "none",
     }}>
       {/* Mockup phone retrieved from Meta's style & design resources */}
-      <Image src={PhoneMockup} alt="Samsung Galaxy S21 5G - Black" height={800} width={450} style={{zIndex: 10, width: "100%", position: "relative"}} draggable={false}/>
+      <Image src={PhoneMockup} alt="Samsung Galaxy S21 5G - Black" height={800} width={450} style={{zIndex: 10, width: "100%", position: "relative", pointerEvents: "none"}} draggable={false}/>
       <PhoneContext/>
     </Box>
   )

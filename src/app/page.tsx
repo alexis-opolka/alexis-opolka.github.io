@@ -17,13 +17,20 @@ export default function Home() {
       alignItems: 'center', // Flex Vertical alignment
       minHeight: 'inherit',
       flexDirection: 'row',
-      borderColor: "red",
-      border: "1px solid"
+      // border: "1px solid red"
     }}>
-      <Box sx={{border: "1px solid grey", padding: "15px", flexGrow: 1, minHeight: "100vh", minWidth: "50vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
+      <Box sx={{
+        // border: "1px solid grey",
+        padding: "15px", flexGrow: 1, minHeight: "100vh",
+        minWidth: "50vh", display: "flex", justifyContent: "center",
+        alignItems: "center"}}>
         <Heading as='h1' sx={{ padding: "15px" }}>Welcome to my website!</Heading>
       </Box>
-      <Box sx={{ border: "1px solid blue", padding: "15px", flexGrow: 1, minHeight: "100vh", minWidth: "50vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <Box sx={{
+        // border: "1px solid blue",
+        padding: "15px", flexGrow: 1, minHeight: "100vh",
+        minWidth: "50vh", display: "flex", justifyContent: "center",
+        alignItems: "center" }}>
         <PhoneComponent />
       </Box>
     </Box>

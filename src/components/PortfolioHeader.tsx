@@ -20,7 +20,7 @@ export default function PortfolioHeader(){
       color: 'fg.default'
     }}>
       <Header.Item full sx={{ textShadow: "shadow.medium"}}>
-        <Header.Link href='#' sx={{color: "fg.default"}}>A/O</Header.Link>
+        <Header.Link href='/' sx={{color: "fg.default"}}>A/O</Header.Link>
       </Header.Item>
       <Header.Item sx={{ mr: 0 }}>
         <Header.Item sx={{ mr: 2 }}>
