@@ -24,7 +24,7 @@ export default function MessageAppWrapper(){
         justifyContent: "center",
         alignItems: "center",
         // Some easy style debugging
-        border: "1px solid red",
+        // border: "1px solid red",
         maxHeight: "initial",
     }
 

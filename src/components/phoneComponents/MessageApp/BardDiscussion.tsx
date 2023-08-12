@@ -9,6 +9,9 @@ import { DiscussionPlayer, DiscussionChoicesInterface, DiscussionMessageInterfac
 import { isReplaceMessageAction, allowedChoiceActions} from "./ActionsHandlers";
 import { messageChoices } from "./MessageChoices";
 
+// Intern imports
+import messageAppStyles from "@/sass/message-app.module.sass";
+
 
 // Rendering work
 export default function BardDiscussion(props: any){
@@ -27,13 +30,12 @@ export default function BardDiscussion(props: any){
   }){
     const choiceStyle: BetterSystemStyleObject = {
       padding: 2,
-      backgroundColor: "#1f1f1f",
       borderRadius: 20,
       margin: 2
     }
 
     return(
-      <Box id={`phone.context.message-app.discussion.choices.${index}`} key={index} sx={choiceStyle} onClick={onClickHandler}>
+      <Box id={`phone.context.message-app.discussion.choices.${index}`} key={index} sx={choiceStyle} className={messageAppStyles.discussionChoice} onClick={onClickHandler}>
         {choiceContent}
       </Box>
     )
@@ -55,7 +57,7 @@ export default function BardDiscussion(props: any){
     const choicesStyle: BetterSystemStyleObject = {
       flexGrow: 0,
       display: "flex",
-      flexDirection: "row",
+      flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
       borderTop: "1px solid",
@@ -176,8 +178,11 @@ export default function BardDiscussion(props: any){
         }
         console.debug("[DEBUG: displayMessage Action]", message);
         return addMessageToHistory(message);
-      };
-
+      } else if (action.type === "goToPageIndex") {
+        nextRouter.push(action.target);
+      } else {
+        console.error(`The action "${action.type}" is not implemented!`);
+      }
     };
 
 
