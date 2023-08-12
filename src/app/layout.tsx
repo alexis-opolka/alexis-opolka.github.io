@@ -63,7 +63,7 @@ export default function RootLayout({
 
   return (
     <html className={`${styles.html}`}>
-      <body className={`body ${inter.className} ${styles.bordered} ${styles.body}`}>
+      <body className={`body ${inter.className} ${styles.body}`}>
         <I18nProvider i18n={i18n}>
           <NoSSR>
             {/** The `NoSSR` custom element is present to avoid
@@ -73,23 +73,7 @@ export default function RootLayout({
              * an SSR Tree mismatch error.
              */}
             <GithubPrimerWrapper>
-                {/* <PageLayout padding='condensed' containerWidth='full'>
-                  <PageLayout.Header sx={{border: '1px solid', borderColor: 'border.default', position: 'sticky'}}>
-                    <PortfolioHeader />
-                  </PageLayout.Header>
-                  <PageLayout.Content sx={{
-                    border: "border.default",
-                    minHeight: "80%"
-                  }}>
-                    <Box sx={{ minHeight: "100vh" }}>
-                      {children}
-                    </Box>
-                  </PageLayout.Content>
-                  <PageLayout.Footer divider={"line"}>
-                  {t({ message: `This is the Footer Content.` })}
-                  </PageLayout.Footer>
-                </PageLayout> */}
-              <Box sx={{ minHeight: "100vh", overflowY: 'auto', border: '1px solid', borderColor: 'border.default' }}>
+              <Box sx={{ minHeight: "100vh", overflowY: 'auto' }}>
                 <Box
                   sx={{
                     position: 'sticky',
@@ -97,8 +81,6 @@ export default function RootLayout({
                     height: 64,
                     placeItems: 'center',
                     backgroundColor: 'canvas.subtle',
-                    borderBottom: '1px solid',
-                    borderColor: 'border.default',
                     zIndex: 1,
                   }}
                 >
