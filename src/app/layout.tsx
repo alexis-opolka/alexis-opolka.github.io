@@ -18,6 +18,7 @@ import GithubPrimerWrapper from "@/components/wrappers/GithubPrimerWrappers";
 import PortfolioHeader from "@/components/PortfolioHeader";
 import { defaultLocale, dynamicLoadNActivateLocale } from "@/headers/i18n";
 import defaultMessages from "@/locales/en/messages";
+import PortfolioFooter from "@/components/PortfolioFooter";
 
 // Variables
 const inter = Inter({ subsets: ['latin'] })
@@ -95,7 +96,7 @@ export default function RootLayout({
                     </Box>
                   </PageLayout.Content>
                   <PageLayout.Footer divider={"line"}>
-                    {t({ message: `This is the Footer Content.` })}
+                    <PortfolioFooter />
                   </PageLayout.Footer>
                 </PageLayout>
               </Box>
