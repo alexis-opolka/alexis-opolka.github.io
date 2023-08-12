@@ -19,11 +19,13 @@ export default function MessageAppWrapper(){
         color: "#ffffff",
         // Now we are styling the display of the elements
         display: "flex",
+        flexGrow: "1 1 1px",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         // Some easy style debugging
-        // border: "1px solid red"
+        border: "1px solid red",
+        maxHeight: "initial",
     }
 
     return(

@@ -108,7 +108,8 @@ function PhoneContextContent(){
     <Box sx={{
       // border: "1px solid cyan",
       flexGrow: 3,
-      width: "100%"
+      width: "100%",
+      maxHeight: "97%",
     }}>
       <MessageAppWrapper />
     </Box>
