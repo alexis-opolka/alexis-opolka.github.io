@@ -1,9 +1,12 @@
 "use client"
 
-import { Pagehead, Box, TabNav, Heading } from "@primer/react";
+import { Pagehead, Box, TabNav, Heading, Text } from "@primer/react";
 import { useCallback, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
+
+// Intern imports
+import { ThemePreview, themeSchemes } from "@/components/ThemeComponents";
 
 
 // variable & constants
@@ -118,11 +121,66 @@ function ThemePanel({
     panelSetter: Function
 }){
 
+
     panelSetter('themes')
+
+    // We're going to cheat a bit on the display, but
+    // we're going to display the themes in a 3x3 grid.
+    // And to do that, we're going to create a 2D array
+    // of the themes (dynamically), and then we're going to map through
+    // the array to display the themes in a 3x3 grid.
+
+    var themeArrayToDisplay = [];
+
+    if (themeSchemes.length%3 === 0){
+        for (var i = 0; i < themeSchemes.length; i+=3){
+            themeArrayToDisplay.push([themeSchemes[i], themeSchemes[i+1], themeSchemes[i+2]])
+        }
+    } else {
+        for (var i = 0; i < themeSchemes.length; i+=3){
+            if (i+2 < themeSchemes.length){
+                themeArrayToDisplay.push([themeSchemes[i], themeSchemes[i+1], themeSchemes[i+2]])
+            } else {
+                themeArrayToDisplay.push([themeSchemes[i], themeSchemes[i+1]])
+            }
+        }
+    }
+
 
     return(
         <Box sx={panelStyle}>
             <Heading> Themes </Heading>
+            <Box sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                flexWrap: "wrap",
+            }}>
+                {/** We will display in a 3x3 column a preview of what the theme looks like using a Header, ThemeProvider, Text and Link Component*/}
+
+                {
+                    themeArrayToDisplay.map((row, index) => {
+                        return(
+                            <Box key={index} sx={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                flexWrap: "nowrap",
+                                // border: "1px solid silver",
+                            }}>
+                                {row.map((scheme, index) => {
+                                    return(
+                                        <ThemePreview key={index} scheme={scheme} />
+                                    )
+                                })}
+                            </Box>
+                        )
+                    })
+                }
+                
+            </Box>
         </Box>
     )
 }

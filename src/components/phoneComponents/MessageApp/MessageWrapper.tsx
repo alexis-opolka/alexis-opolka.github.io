@@ -47,8 +47,6 @@ function MessageContactHeader(){
 
     const contactHeaderStyle: BetterSystemStyleObject = {
         display: "flex",
-        // border: "1px solid cyan",
-        // flexGrow: 0.2,
         width: "100%",
         flexDirection: "row",
         borderBottom: "1px solid",
@@ -96,7 +94,7 @@ function MessageContactHeader(){
                         alignItems: "center"
                     }}>
                         <Link href={"/test"}><Text sx={{
-                            color: "fg.default"
+                            color: "#ffffff",
                         }}>Alexis Opolka</Text></Link>
                     </Box>
                 </Box>

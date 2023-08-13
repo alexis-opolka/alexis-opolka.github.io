@@ -25,7 +25,7 @@ export default function RootLayout({
 
   const rootBreadCrumbs = (
     <Breadcrumbs>
-      <Breadcrumbs.Item href="/" sx={{color: "header.logo"}}>A/O</Breadcrumbs.Item>
+      <Breadcrumbs.Item href="/" sx={{color: "fg.default"}}>A/O</Breadcrumbs.Item>
     </Breadcrumbs>
   );
 

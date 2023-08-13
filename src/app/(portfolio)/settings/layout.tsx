@@ -29,8 +29,8 @@ export default function SettingsLayout({
 
   const settingsBreadCrumbs = (
     <Breadcrumbs>
-        <Breadcrumbs.Item href="/" sx={{color: "header.logo"}}>A/O</Breadcrumbs.Item>
-        <Breadcrumbs.Item href="/settings" sx={{color: "header.text"}}>Settings</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/" sx={{color: "fg.default"}}>A/O</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/settings" sx={{color: "fg.default"}}>Settings</Breadcrumbs.Item>
     </Breadcrumbs>
   );
 
