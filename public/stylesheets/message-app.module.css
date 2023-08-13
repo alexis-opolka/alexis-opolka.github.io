@@ -1,0 +1,10 @@
+.discussionChoice {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+.discussionChoice:hover {
+  background-color: #2f2f2f;
+  color: #fff;
+}
+
+/*# sourceMappingURL=message-app.module.css.map */
