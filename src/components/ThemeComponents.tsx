@@ -78,7 +78,7 @@ export function ThemeToggleButton() {
   }
 
   return (
-    <Button variant='invisible' onClick={toggleTheme}>
+    <Button variant='invisible' onClick={toggleTheme} sx={{color: "btn.text"}}>
 
       <Octicon icon={schemes[currentPrimerTheme].icon} size={20} />
 
