@@ -13,7 +13,7 @@ import PortfolioFooter from "@/components/PortfolioFooter";
 
 
 // Exports (Functions, Components, Variables/Constants)
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Alexis Opolka Portfolio',
   description: 'The website & portfolio of Alexis Opolka',
 }
