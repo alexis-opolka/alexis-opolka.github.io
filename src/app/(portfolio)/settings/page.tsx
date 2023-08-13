@@ -19,6 +19,8 @@ const panelStyle: BetterSystemStyleObject = {
     border: "1px solid",
     borderColor: "border.default",
     borderRadius: "1rem",
+    borderTopLeftRadius: 0,
+    bg: "canvas.default",
 }
 
 
@@ -29,6 +31,7 @@ export default function SettingsPages() {
 
     const createQueryString = useCallback(
         (name: string, value: string) => {
+        // eslint-disable-next-line
         const params = new URLSearchParams(searchParams)
         params.set(name, value)
     
@@ -63,7 +66,9 @@ export default function SettingsPages() {
                 justifyContent: "space-between",
                 alignItems: "center",
                 flexDirection: "row",
-                border: "none"
+                border: "none",
+                marginBottom: 0,
+                paddingBottom: 0
             }}>
                 <TabNav aria-label="Main" style={{border: "none"}}>
                     <Heading sx={{mr: 5}}> Settings </Heading>
@@ -157,7 +162,6 @@ function ThemePanel({
                 alignItems: "center",
                 flexWrap: "wrap",
             }}>
-                {/** We will display in a 3x3 column a preview of what the theme looks like using a Header, ThemeProvider, Text and Link Component*/}
 
                 {
                     themeArrayToDisplay.map((row, index) => {

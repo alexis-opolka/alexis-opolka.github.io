@@ -6,26 +6,31 @@ import type { Metadata } from 'next';
 // NextJS imports
 import { PageLayout, Box, Breadcrumbs } from "@primer/react";
 
+
 // Intern Imports
 import PortfolioHeader from "@/components/PortfolioHeader";
 import PortfolioFooter from "@/components/PortfolioFooter";
 
 
 // Exports (Functions, Components, Variables/Constants)
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Alexis Opolka Portfolio',
   description: 'The website & portfolio of Alexis Opolka',
 }
 
-export default function RootLayout({
+export default function AboutLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
 
-  const rootBreadCrumbs = (
+
+
+
+  const AboutBreadCrumbs = (
     <Breadcrumbs>
-      <Breadcrumbs.Item href="/" sx={{color: "header.logo"}}>A/O</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/" sx={{color: "header.logo"}}>A/O</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/about" sx={{color: "header.text"}}>About</Breadcrumbs.Item>
     </Breadcrumbs>
   );
 
@@ -41,10 +46,12 @@ export default function RootLayout({
           zIndex: 1,
         }}
       >
-        <PortfolioHeader breadCrumbs={rootBreadCrumbs}/>
+        <PortfolioHeader breadCrumbs={AboutBreadCrumbs}/>
       </Box>
-      <PageLayout sx={{ overflow: "hidden", bg: 'canvas.inset' }}>
-        <PageLayout.Content>
+      <PageLayout sx={{ overflow: "hidden", bg: "canvas.inset" }}>
+        <PageLayout.Content sx={{
+          border: "border.default",
+        }}>
           <Box sx={{ minHeight: "100vh"}}>
             {children}
           </Box>
