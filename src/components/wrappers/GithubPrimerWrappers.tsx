@@ -7,7 +7,7 @@ export default function GithubPrimerWrapper({
 }){
 
   return(
-    <ThemeProvider colorMode={"night"}>
+    <ThemeProvider colorMode={"day"}>
       <BaseStyles>
         {children}
       </BaseStyles>
