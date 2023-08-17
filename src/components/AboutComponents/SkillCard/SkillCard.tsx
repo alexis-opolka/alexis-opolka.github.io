@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 // Intern Imports
 import { ProjectsInterface, LibraryInterface } from "../interfaces";
-import styles from "@/sass/master.module.sass";
 import githubLinguist from '../libs/github-linguist.yaml'; // <-- Should produce an error (or at least a warning) because it can't find its module or type declaractions
 
 
@@ -257,7 +256,7 @@ function ShowGithubRepositoryRelatedToSkill({
                         </Box>
 
                         <ProgressBar sx={{width: "60%", margin: 1}}>
-                            {repository.languages.edges.map((languageNode: any, nodeID: number) => {
+                            {repository.languages.edges.map((languageNode: {size: number, node: {color: string}}, nodeID: number) => {
 
                                 // We're creating the language programming bar you can see on GitHub.
                                 // It is, for me, quite common and typical of a git repository to have

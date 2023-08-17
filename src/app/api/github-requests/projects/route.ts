@@ -30,7 +30,7 @@ export const client = new ApolloClient({
 });
 
 export async function GET() {
-  const res: ApolloQueryResult<any> = await client
+  const res: ApolloQueryResult<never> = await client
     .query({
       query: gql`
         query{

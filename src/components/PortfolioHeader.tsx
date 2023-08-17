@@ -1,6 +1,6 @@
 
 // NextJS Imports
-import { Header, Avatar, Select, FormControl, Text, Box, Octicon, Button } from "@primer/react";
+import { Header, Octicon, Button } from "@primer/react";
 import { GearIcon } from "@primer/octicons-react";
 
 // Intern Imports

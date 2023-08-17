@@ -28,7 +28,7 @@ export function isStartReplaceMessageAction(action: MessageAppInterfaces.Discuss
   action is {
     type: "replaceMessage",
     target: Array<number>,
-    content: any
+    content: never
   } {
     return action.type === "replaceMessage" && action.content && Array.isArray(action.target);
 }
@@ -37,8 +37,8 @@ export function isStartReplaceMessageAction(action: MessageAppInterfaces.Discuss
 export function isSetStatefulVariableAction( action: MessageAppInterfaces.DiscussionChoicesActions ):
   action is {
     type: "setStatefulVariable";
-    variableSetter: Function;
-    value: any
+    variableSetter: never;
+    value: never;
   } {
     return action.type === "setStatefulVariable" && typeof action.variableSetter === "function";
 }

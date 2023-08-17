@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Text } from '@primer/react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { MdWifiOff, MdNetworkWifi, MdNetworkWifi1Bar, MdNetworkWifi3Bar, MdOutlineSignalCellularAlt } from 'react-icons/md';
-import IconsToShow from '@/components/wrappers/Icons';
 
 export default function NetworkStatus({
   connectivity,
@@ -16,7 +17,7 @@ export default function NetworkStatus({
 
   // Let's start assuming we have a network connection.
   const [netStatus, setNetStatus] = useState(true);
-  var connectionIcon;
+  let connectionIcon;
 
   // Let's make changes, if necessary
   // connected? setNetStatus(connected) : setNetStatus(true);
@@ -29,7 +30,7 @@ export default function NetworkStatus({
     connectionIcon = <MdNetworkWifi />;
   } else {
     connectionIcon = <MdNetworkWifi />;
-  };
+  }
 
   return(
     <Box sx={{
@@ -69,7 +70,6 @@ export function NetworkCarrier(){
     else if (window.navigator.userAgent.indexOf('Edge') !== -1) { currentBrowser = 'Edge'; }
     else if (window.navigator.userAgent.indexOf('Safari') !== -1) { currentBrowser = 'Safari'; }
     else if (window.navigator.userAgent.indexOf('Opera') !== -1) { currentBrowser = 'Opera'; }
-    else if (window.navigator.userAgent.indexOf('Opera') !== -1) { currentBrowser = 'YaBrowser'; }
     else {
       // We just do nothing, we already set up the default value before
       // this big conditional paragraph.

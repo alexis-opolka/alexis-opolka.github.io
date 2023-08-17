@@ -1,8 +1,5 @@
 "use client"
 
-// Stylesheets and Types imports
-import type { Metadata } from 'next';
-
 // NextJS imports
 import { PageLayout, Box, Breadcrumbs } from "@primer/react";
 
@@ -10,12 +7,6 @@ import { PageLayout, Box, Breadcrumbs } from "@primer/react";
 import PortfolioHeader from "@/components/PortfolioHeader";
 import PortfolioFooter from "@/components/PortfolioFooter";
 
-
-// Exports (Functions, Components, Variables/Constants)
-const metadata: Metadata = {
-  title: 'Alexis Opolka Portfolio',
-  description: 'The website & portfolio of Alexis Opolka',
-}
 
 export default function RootLayout({
   children,

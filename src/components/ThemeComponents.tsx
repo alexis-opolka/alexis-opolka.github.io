@@ -64,7 +64,7 @@ export const themeSchemes: {
 export function ThemeToggleButton() {
   const { setDayScheme, setNightScheme, setColorMode, colorMode } = useTheme();
 
-  var defaultColorValue;
+  let defaultColorValue;
 
   // As the `colorMode` can be changed, the default value
   // should also change.
@@ -102,8 +102,8 @@ export function ThemeToggleButton() {
 
       setCurrentPrimerTheme(0);
       setSchemesValue(0)
-    };
-  };
+    }
+  }
 
   function setSchemesValue(newColorMode: IndexKind){
     setDayScheme(themeSchemes[newColorMode].value);
@@ -117,7 +117,7 @@ export function ThemeToggleButton() {
   )
 }
 
-export function ThemePreview({scheme}: {scheme: any}){
+export function ThemePreview({scheme}: {scheme: {value: string, name: string, icon: Icon}}){
 
   const themePreviewStyle: BetterSystemStyleObject = {
     display: "flex",
