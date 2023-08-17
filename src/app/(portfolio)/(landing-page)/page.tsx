@@ -1,7 +1,7 @@
 "use client"
 
 // NextJS Imports
-import { Box, Heading, Text } from '@primer/react';
+import { Box, Heading } from '@primer/react';
 
 // Intern Imports
 import PhoneComponent from '@/components/phoneComponents/PhoneComponent';

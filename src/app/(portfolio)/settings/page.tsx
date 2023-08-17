@@ -1,8 +1,8 @@
 "use client"
 
-import { Pagehead, Box, TabNav, Heading, Text } from "@primer/react";
+import { Pagehead, Box, TabNav, Heading } from "@primer/react";
 import { useCallback, useState } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
 
 // Intern imports
@@ -25,7 +25,6 @@ const panelStyle: BetterSystemStyleObject = {
 
 
 export default function SettingsPages() {
-    const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
 
@@ -93,7 +92,7 @@ export default function SettingsPages() {
 function DefaultPanel({
     panelSetter
 }: {
-    panelSetter: Function
+    panelSetter: (panel: string) => void
 }){
 
     panelSetter('default')
@@ -108,7 +107,7 @@ function DefaultPanel({
 function ProfilePanel({
     panelSetter
 }: {
-    panelSetter: Function
+    panelSetter: (panel: string) => void
 }){
 
     panelSetter('profile')
@@ -123,7 +122,7 @@ function ProfilePanel({
 function ThemePanel({
     panelSetter
 }: {
-    panelSetter: Function
+    panelSetter: (panel: string) => void
 }){
 
 
@@ -135,14 +134,14 @@ function ThemePanel({
     // of the themes (dynamically), and then we're going to map through
     // the array to display the themes in a 3x3 grid.
 
-    var themeArrayToDisplay = [];
+    const themeArrayToDisplay = [];
 
     if (themeSchemes.length%3 === 0){
-        for (var i = 0; i < themeSchemes.length; i+=3){
+        for (let i = 0; i < themeSchemes.length; i+=3){
             themeArrayToDisplay.push([themeSchemes[i], themeSchemes[i+1], themeSchemes[i+2]])
         }
     } else {
-        for (var i = 0; i < themeSchemes.length; i+=3){
+        for (let i = 0; i < themeSchemes.length; i+=3){
             if (i+2 < themeSchemes.length){
                 themeArrayToDisplay.push([themeSchemes[i], themeSchemes[i+1], themeSchemes[i+2]])
             } else {

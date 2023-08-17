@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 
   const repository = request.nextUrl.pathname.split("/")[request.nextUrl.pathname.split("/").length-1]
 
-  const res: ApolloQueryResult<any> = await client
+  const res: ApolloQueryResult<never> = await client
     .query({
       query: gql`
         query {

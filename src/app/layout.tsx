@@ -7,7 +7,7 @@ import styles from "/public/stylesheets/master.module.css";
 import { Inter } from 'next/font/google'
 import { I18nProvider } from "@lingui/react";
 import { i18n } from '@lingui/core';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // Intern Imports
 import NoSSR from "@/components/wrappers/NoSSR";
@@ -21,7 +21,7 @@ const inter = Inter({ subsets: ['latin'] })
 // We set this variable to false as default
 // as it serves us to know if the `useEffect` hook
 // was called before rendering `I18nProvider` Component
-var isDefaultLocaleSet = false;
+let isDefaultLocaleSet = false;
 // Dynamically call translations inside a `useEffect` React hook
 const I18nApp = () => {
   useEffect(() => {
@@ -31,6 +31,7 @@ const I18nApp = () => {
     isDefaultLocaleSet = true;
   }, [])
 }
+I18nApp();
 
 export default function RootLayout({children}:{children: React.ReactNode}){
 

@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
-import React, { useState, useEffect, useRef } from "react";
-import { StaticImageData } from "next/image";
+import React, { useState } from "react";
 import { Box } from "@primer/react";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
 import { useRouter } from "next/navigation";
-import { DiscussionPlayer, DiscussionChoicesInterface, DiscussionMessageInterface, DiscussionChoicesOptions, DiscussionChoicesActions, DiscussionChoicesStatefulVariableActions, DiscussionChoicesStartActions } from "./MessageAppInterfaces";
+import { DiscussionChoicesInterface, DiscussionMessageInterface, DiscussionChoicesOptions, DiscussionChoicesActions, DiscussionChoicesStatefulVariableActions, DiscussionChoicesStartActions } from "./MessageAppInterfaces";
 import { isReplaceMessageAction, allowedChoiceActions} from "./ActionsHandlers";
 import { messageChoices } from "./MessageChoices";
 
@@ -39,7 +40,7 @@ export default function BardDiscussion(props: any){
         {choiceContent}
       </Box>
     )
-  };
+  }
 
   // The `renderMessage` function is the function that is used to render both
   // the messages and the choices using loops and conditions.
@@ -103,7 +104,7 @@ export default function BardDiscussion(props: any){
         </Box>
       </Box>
     );
-  };
+  }
 
   // The router is used to navigate to pages
   const nextRouter = useRouter();
@@ -129,7 +130,7 @@ export default function BardDiscussion(props: any){
 
   function addMessageToHistory(message: DiscussionMessageInterface){
     setMessageHistory([...messageHistory, message]);
-  };
+  }
 
   // The `handleClick` function is the default handler for the choices and their actions
   function handleClick(event: any){
@@ -138,7 +139,7 @@ export default function BardDiscussion(props: any){
       if (!allowedChoiceActions.includes(action.type)) {
         console.error(`The action "${action.type}" is not allowed!`);
         return false;
-      };
+      }
 
       if (action.type === "goToChoiceIndex") {
         if (typeof action.target === "number"){
@@ -166,7 +167,7 @@ export default function BardDiscussion(props: any){
             console.error("The target of the action is not a number!");
         }
       } else if (action.type === "displayMessage") {
-        var message;
+        let message;
 
         if (type === "startAction"){
           message = action.content;
@@ -183,7 +184,7 @@ export default function BardDiscussion(props: any){
       } else {
         console.error(`The action "${action.type}" is not implemented!`);
       }
-    };
+    }
 
 
     const selectedChoice = event.target.textContent;
@@ -195,12 +196,12 @@ export default function BardDiscussion(props: any){
       setShowChoices(true);
     }
 
-    for (var i = 0; i < messages[currentIndex].options[selectedChoiceIndex].actions.length; i++) {
+    for (let i = 0; i < messages[currentIndex].options[selectedChoiceIndex].actions.length; i++) {
       const action: (DiscussionChoicesActions | DiscussionChoicesStatefulVariableActions) = messages[currentIndex].options[selectedChoiceIndex].actions[i];
 
       ActionsHandler(action, "choiceAction");
     }
-  };
+  }
 
   return renderMessage();
-};
+}

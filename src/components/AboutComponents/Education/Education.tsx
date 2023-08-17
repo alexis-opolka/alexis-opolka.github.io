@@ -1,8 +1,7 @@
 // NextJS Imports
-import { Box, Link, Heading, Timeline, Octicon, Text } from "@primer/react";
+import { Box, Timeline, Octicon, Text } from "@primer/react";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
 import {FlameIcon} from "@primer/octicons-react";
-import styles from "@/sass/master.module.sass";
 
 export default function AboutMyEducation(){
 

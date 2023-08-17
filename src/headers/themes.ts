@@ -13,5 +13,5 @@ export default function ToggleTheme(){
   } else {
     setColorMode("dark");
     setCurrentPrimerTheme("dark");
-  };
+  }
 }

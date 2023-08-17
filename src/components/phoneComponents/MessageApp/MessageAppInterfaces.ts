@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { StaticImageData } from "next/image";
 
 // Interface Definition
@@ -88,7 +89,7 @@ export interface DiscussionChoicesActions extends DiscussionBaseInterface {
 
 export interface DiscussionChoicesStatefulVariableActions extends DiscussionChoicesActions {
   value: any,
-  variableSetter: Function,
+  variableSetter: never,
 }
 
 // We define an extension of the base interface for the choice actions
