@@ -1,5 +1,5 @@
 // NextJS Imports
-import { Box, Text } from "@primer/react";
+import { Box } from "@primer/react";
 import type { BetterSystemStyleObject } from "@primer/react/lib/sx";
 import {MdKeyboardArrowLeft, MdOutlineHome, MdMenu} from "react-icons/md";
 
@@ -16,11 +16,7 @@ import MessageAppWrapper from "@/components/phoneComponents/MessageApp/MessageWr
  * This is the function that exports the PhoneContext Component.
  * @returns Test
  */
-export default function PhoneContext({
-  sx
-}: {
-  sx?: BetterSystemStyleObject
-}){
+export default function PhoneContext(){
   // This component doesn't take any arguments (apart from sx) but wraps all he returns
   // in the PhoneContextManager Component which is in charge of supervising
   // the state of the "game" the player is at on the website.

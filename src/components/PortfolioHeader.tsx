@@ -1,6 +1,6 @@
 
 // NextJS Imports
-import { Header, Avatar, Select, FormControl, Text, Box, Octicon, Button } from "@primer/react";
+import { Header, Octicon, Button } from "@primer/react";
 import { GearIcon } from "@primer/octicons-react";
 
 // Intern Imports
@@ -18,7 +18,7 @@ export default function PortfolioHeader({
       top: 0,
       height: 64,
       placeItems: 'center',
-      backgroundColor: 'canvas.subtle',
+      backgroundColor: 'header.bg',
       borderBottom: '1px solid',
       borderColor: 'border.default',
       zIndex: 1,
@@ -35,7 +35,7 @@ export default function PortfolioHeader({
           <ThemeToggleButton />
         </Header.Item>
         <Header.Item sx={{ mr: 2, ml: 2 }}>
-          <Button as="a" href="/settings" variant="invisible" sx={{ display: "flex", alignItems: "center", color: "btn.text" }}>
+          <Button as="a" href="/settings" variant="invisible" sx={{ display: "flex", alignItems: "center", color: "header.divider" }}>
             <Octicon icon={GearIcon} />
           </Button>
         </Header.Item>

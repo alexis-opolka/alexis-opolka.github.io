@@ -7,20 +7,19 @@ export default function NTPLocalTime(){
   // it would appear on an android phone
   // i.e: HH:MM
 
-  var defaultDate = new Date();
+  const defaultDate = new Date();
   const [currentDisplayableTime, setDisplayableTime] = useState(`${defaultDate.getHours()}:${defaultDate.getMinutes()}`);
 
   useEffect(() => {
     function updateCurrentTime(){
       const currentTime = new Date();
-      var currentHour, currentMinutes;
 
-      currentHour = currentTime.getHours();
-      currentMinutes = currentTime.getMinutes();
+      const currentHour = currentTime.getHours();
+      const currentMinutes = currentTime.getMinutes();
 
       setDisplayableTime(`${currentHour}:${currentMinutes}`);
       console.log("Current Time updated!");
-    };
+    }
 
     // We update the current time every 15s (or 1/4 of a minute)
     // to have a low latency on update time but to not take a lot

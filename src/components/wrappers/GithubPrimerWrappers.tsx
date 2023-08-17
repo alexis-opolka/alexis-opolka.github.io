@@ -1,4 +1,4 @@
-import { BaseStyles, ThemeProvider, Box } from "@primer/react";
+import { BaseStyles, ThemeProvider } from "@primer/react";
 
 export default function GithubPrimerWrapper({
   children

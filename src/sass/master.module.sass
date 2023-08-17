@@ -7,3 +7,27 @@
 
 .bordered
   border: 1px solid red
+
+@media screen and (max-width: 1000px)
+  .test
+    flex-direction: column
+
+@media screen and (min-width: 1000px)
+  .test
+    flex-direction: row
+
+@media screen and (max-width: 560px)
+  .test
+    margin-left: -10% !important
+
+  .responsiveSkillCard
+    flex-wrap: wrap !important
+
+  .ResponsiveSubSkillCard
+    flex-wrap: wrap !important
+
+@media screen and (max-width: 670px)
+
+  .ResponsiveCard
+    flex-wrap: wrap !important
+    flex-direction: column

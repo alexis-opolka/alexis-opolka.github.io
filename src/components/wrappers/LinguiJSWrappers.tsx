@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // NextJS
 import { FormControl, Select, Box } from "@primer/react";
 import { dynamicLoadNActivateLocale } from "@/headers/i18n";
@@ -7,7 +8,7 @@ export function LinguiLocaleChangeForm(){
   function setCurrentLocale(locale: string){
     console.log(`[LOG]: setCurrentLocale -> ${locale}`);
     dynamicLoadNActivateLocale(locale);
-  };
+  }
 
   // type ReactMouseEvent<HTMLOptions, MouseEvent>;
 
