@@ -39,7 +39,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "yaml.d.td"
   ],
   "exclude": [
     "node_modules"
