@@ -46,14 +46,22 @@ export async function GET(request: NextRequest) {
           repository(name: "${repository}", owner: "alexis-opolka") {
             id,
             name,
+            owner {
+              id,
+              login,
+              url
+            },
             description,
             languages(first: ${8}) {
               edges {
                 node {
                   id,
                   name,
-                }
-              }
+                  color
+                },
+                size,
+              },
+              totalSize
             },
             isFork,
             isPrivate,
@@ -75,9 +83,12 @@ export async function GET(request: NextRequest) {
       `,
     })
     .then((result) => {
-      console.log("Result:", result)
+      // console.log("Result:", result)
       return result;
-    });
+    })
+    .catch((error) => {
+      return error
+    })
 
   return NextResponse.json(res);
 }

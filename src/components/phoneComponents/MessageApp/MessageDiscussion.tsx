@@ -1,7 +1,7 @@
 // NextJS Imports
 import { Avatar, Box, Text } from "@primer/react";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, LegacyRef} from "react";
 
 // Intern Imports
 import BardDiscussion from "./BardDiscussion";
@@ -23,7 +23,7 @@ export default function MessageDiscussionWrapper(){
             <BardDiscussion messageComponent={DiscussionMessage} />
         </Box>
     )
-};
+}
 
 function DiscussionMessage({
     player,
@@ -32,7 +32,7 @@ function DiscussionMessage({
     player: DiscussionPlayer,
     message: string
 }){
-    var messageStyle: BetterSystemStyleObject;
+    let messageStyle: BetterSystemStyleObject;
     const messageContentStyle: BetterSystemStyleObject = {
         width: "80%",
         marginLeft: 2,
@@ -70,17 +70,17 @@ function DiscussionMessage({
 
     // Define the playerAvatar constant to be either player.avatar
     // if it's a string or player.avatar.src if it's a StaticImageData
-    var playerAvatar: string;
+    let playerAvatar: string;
     if (typeof player.avatar === "string") {
         playerAvatar = player.avatar;
     } else {
         playerAvatar =  player.avatar.src;
-    };
+    }
 
     const avatarComponent = <Avatar src={playerAvatar} size={30} />;
     const contentComponent = <Text>{message}</Text>;
 
-    var currentLastMessageRef = useRef();
+    const currentLastMessageRef: LegacyRef<HTMLDivElement> = useRef(null);
     useEffect(() => {
         if (currentLastMessageRef.current) {
             currentLastMessageRef.current.scrollIntoView({ behavior: "smooth" });

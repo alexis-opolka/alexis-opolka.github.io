@@ -8,6 +8,9 @@ import {ChevronRightIcon} from "@primer/octicons-react";
 // Intern Imports
 import ProfilePicture from "@/content/img/profile-picture.png";
 import { SkillsPart } from "@/components/AboutComponents/Skills";
+import { ExperiencePart } from "@/components/AboutComponents/Experience";
+import { ReactNode } from "react";
+import { AboutMyEducation } from "@/components/AboutComponents/Education";
 
 // Rendering page
 export default function AboutPage(){
@@ -45,7 +48,9 @@ function IntroductionPart(){
 
     return(
         <Box sx={introductionPartStyle}>
-            <Avatar src={ProfilePicture.src} size={256} draggable={false}/>
+            <Avatar src={ProfilePicture.src} size={{
+                wide: 128
+            }} draggable={false} />
             <Box sx={{margin: 2, display: "flex", flexDirection: "column"}}>
                 <Box id="About.Introduction.Headings">
                     <Heading as="h1" sx={{fontSize: 6}}>Alexis Opolka</Heading>
@@ -70,10 +75,35 @@ function IntroductionPart(){
 
 // The AboutBodyWrapper is the wrapper for the body of the about page
 // It is mainly used to add a margin to the body
-function AboutBodyWrapper({children}: {children: React.ReactNode}){
+function AboutBodyWrapper({children}: {children: ReactNode}){
     return(
-        <Box sx={{margin: 4}}>
+        <Box sx={{margin: 4, maxWidth: "100%"}}>
             {children}
+        </Box>
+    )
+}
+
+function AboutSection({id, title, children}: {id: string, title: string, children: ReactNode}){
+
+    const aboutSectionStyle: BetterSystemStyleObject = {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        alignItems: "start",
+        color: "text.primary",
+        maxWidth: "100%",
+    }
+
+    return(
+        <Box id={id} sx={aboutSectionStyle}>
+            <Box id={id + ".Headings"} sx={{margin: 2, maxWidth: "100%"}}>
+                <Heading as={"h2"} sx={{fontSize: 5, maxWidth: "100%"}}>
+                    {title}
+                </Heading>
+            </Box>
+            <Box id={id + ".Content"} sx={{maxWidth: "100%"}}>
+                {children}
+            </Box>
         </Box>
     )
 }
@@ -82,26 +112,15 @@ function AboutBodyWrapper({children}: {children: React.ReactNode}){
 // with the list of interests, hobbies, goals, etc.
 function AboutMePart(){
 
-    const aboutMePartStyle: BetterSystemStyleObject = {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "start",
-        alignItems: "start",
-        color: "text.primary",
-    }
-
     const aboutMeInteterestsArray: string[] = [
         "Cloud development", "Game development", "Internet of Things",
         "DevOps", "Mental Health (mostly about burnout)", "Entrepreuneurship",
     ]
 
     return(
-        <Box sx={aboutMePartStyle}>
-            <Box id="About.AboutMe.Headings" sx={{margin: 2}}>
-                <Heading as="h2" sx={{fontSize: 5}}>About Me</Heading>
-            </Box>
+        <AboutSection id="About.AboutMe" title="About Me">
             <Box id="About.AboutMe.Paragraph" sx={{padding: 15, margin: 2}}>
-                <Text sx={{color: "fg.default"}} as={"p"}>
+                <Text as={"p"}>
                     I&apos;m a french student with a passion for technology, arts and entrepreuneurship. <br />
                     My main goals are to become a DevOps Engineer, to create my own company and contribute to the society as a whole. <br />
                     I&apos;m interested in many things (if not a lot), but for the most part, it&apos;s about:
@@ -121,15 +140,17 @@ function AboutMePart(){
                         }
                     </Timeline>
                 </Text>
-                <Text sx={{color: "fg.default"}} as={"p"}>
+                <Text as={"p"}>
                     Meanwhile, you can see me on many projects as a <b>contributor</b>, a <b>project manager</b> or as a <b>leader</b>. <br />
                     I might also be a speaker at some events, a mentor for some students.
-                    But don&apos;t worry, I&apos;m not a workaholic. <br />
+                    But don&apos;t worry, I&apos;m not a workaholic.
+                </Text>
+                <Text as={"p"}>
                     I also have some hobbies like writing & reading stories (mostly fantasy and sci-fi), creating & playing video games,
                     listening to music (mostly Blues/Jazz and Lo-Fi) and experimenting with new technologies.
                 </Text>
             </Box>
-        </Box>
+        </AboutSection>
     )
 }
 
@@ -138,74 +159,18 @@ function AboutMePart(){
 // for the two parts.
 function SkillsAndExperiencePart(){
 
-    const skillsAndExperiencePartStyle: BetterSystemStyleObject = {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "start",
-        color: "text.primary",
-    }
-
-    // The content should be displayed in a row of unequal height with a divider in the middle
-    // The `Box` component should span the whole width of the parent.
-    // The divider should be a vertical line.
-    const skillsAndExperiencePartContentStyle: BetterSystemStyleObject = {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "start",
-        color: "text.primary",
-        padding: 15,
-        minWidth: "100%"
-    }
-
     return(
-        <Box sx={skillsAndExperiencePartStyle}>
-            <Box id="About.SkillsAndExperience.Headings" sx={{margin: 2}}>
-                <Heading as="h2" sx={{fontSize: 5}}>Skills & Experience</Heading>
-            </Box>
-            <Box id="About.SkillsAndExperience.Content" sx={skillsAndExperiencePartContentStyle}>
-                <PageLayout id="About.SkillsAndExperience.Content.PageLayout" sx={{width: "100%", display: "flex", flexDirection: "row", flex: "0 0 100%", justifyContent: "center"}}>
-                    <PageLayout.Content id="About.SkillsAndExperience.Content.PageLayout.Content" sx={{width: "100%", display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                        <SkillsPart />
-                    </PageLayout.Content>
-                    <PageLayout.Pane divider={"line"} sx={{width: "100%", display: "flex", flexDirection: "column"}}>
-                        <ExperiencePart />
-                    </PageLayout.Pane>
-                </PageLayout>
-            </Box>
-        </Box>
-
-    )
-}
-
-
-
-// The ExperiencePart is the part containing the experience timeline.
-function ExperiencePart(){
-
-    const experiencePartStyle: BetterSystemStyleObject = {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "start",
-        color: "text.primary",
-        // border: "1px solid",
-        // borderColor: "border.default",
-    }
-
-    return(
-        <Box id="About.SkillsAndExperience.Experience" sx={experiencePartStyle}>
-            <Box id="About.SkillsAndExperience.Experience.Headings" sx={{margin: 2}}>
-                <Text as={"h3"} sx={{fontSize: 3}}> My Experience </Text>
-            </Box>
-        </Box>
+        <AboutSection id="About.SkillsAndExperience" title="Skill & Experience">
+            <SkillsPart />
+            <ExperiencePart />
+        </AboutSection>
     )
 }
 
 // The EducationPart is the part containing the education timeline.
 function EducationPart(){
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const educationPartStyle: BetterSystemStyleObject = {
         display: "flex",
         flexDirection: "column",
@@ -215,13 +180,16 @@ function EducationPart(){
     }
 
     return(
-        <Box>This is the education part.</Box>
+        <AboutSection id="About.Education" title="My Studies">
+            <AboutMyEducation />
+        </AboutSection>
     )
 }
 
 // The VolunteeringPart is the part containing the volunteering timeline.
 function VolunteeringPart(){
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const volunteeringPartStyle: BetterSystemStyleObject = {
         display: "flex",
         flexDirection: "column",
@@ -231,7 +199,9 @@ function VolunteeringPart(){
     }
 
     return(
-        <Box>This is the volunteering part.</Box>
+        <AboutSection id="About.Volunteering" title="Volunteering">
+            Hey There! What did I volunteer again?
+        </AboutSection>
     )
 
 }
