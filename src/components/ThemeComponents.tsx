@@ -111,7 +111,7 @@ export function ThemeToggleButton() {
   }
 
   return (
-    <Button variant='invisible' onClick={toggleTheme} sx={{color: "btn.text"}}>
+    <Button variant='invisible' onClick={toggleTheme} sx={{color: "header.divider"}}>
       <Octicon icon={themeSchemes[currentPrimerTheme].icon} size={20} />
     </Button>
   )
@@ -130,6 +130,7 @@ export function ThemePreview({scheme}: {scheme: any}){
     margin: "1rem",
     width: "20%",
     height: "20%",
+    bg: "canvas.inset"
   }
   // We are referencing all the theme values from the theme to preview
   const {theme} = useTheme();
