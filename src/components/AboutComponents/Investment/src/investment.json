@@ -39,6 +39,13 @@
             "name": "Festival Fantastique de Béziers (FFB) 2023",
             "category": "school-event",
             "description": "The Festival of Fantastic by the IUT of Béziers."
+        },
+        {
+            "id": "windev-28-test",
+            "name": "Q/A Testing of Windev 28 - PC SOFT",
+            "category": "other",
+            "description": "It was a one day session organised by PC SOFT to test their current tutorial and other aspects of their product Windev 28 from the point of view of students.",
+            "url": "https://windev.com"
         }
     ]
 }
