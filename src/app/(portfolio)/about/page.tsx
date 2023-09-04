@@ -4,13 +4,15 @@
 import { Avatar, Box, CircleOcticon, Heading, PageLayout, Text, Timeline } from "@primer/react";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
 import {ChevronRightIcon} from "@primer/octicons-react";
+import { ReactNode } from "react";
 
 // Intern Imports
 import ProfilePicture from "@/content/img/profile-picture.png";
 import { SkillsPart } from "@/components/AboutComponents/Skills";
 import { ExperiencePart } from "@/components/AboutComponents/Experience";
-import { ReactNode } from "react";
 import { AboutMyEducation } from "@/components/AboutComponents/Education";
+import { VolunteeringExperience } from "@/components/AboutComponents/Volunteering";
+import {MyInvestment} from "@/components/AboutComponents/Investment";
 
 // Rendering page
 export default function AboutPage(){
@@ -28,7 +30,7 @@ export default function AboutPage(){
                     <AboutMePart />
                     <SkillsAndExperiencePart />
                     <EducationPart />
-                    <VolunteeringPart />
+                    <VolunteeringAndInvestmentPart />
                 </AboutBodyWrapper>
             </PageLayout.Content>
         </PageLayout>
@@ -101,7 +103,7 @@ function AboutSection({id, title, children}: {id: string, title: string, childre
                     {title}
                 </Heading>
             </Box>
-            <Box id={id + ".Content"} sx={{maxWidth: "100%"}}>
+            <Box id={id + ".Content"} sx={{maxWidth: "100%", width: "100%"}}>
                 {children}
             </Box>
         </Box>
@@ -124,31 +126,38 @@ function AboutMePart(){
                     I&apos;m a french student with a passion for technology, arts and entrepreuneurship. <br />
                     My main goals are to become a DevOps Engineer, to create my own company and contribute to the society as a whole. <br />
                     I&apos;m interested in many things (if not a lot), but for the most part, it&apos;s about:
-                    <Timeline sx={{ml: 2, mt: 3}}>
-                        {aboutMeInteterestsArray.map((interest, index) => {
-                            return(
-                                <Timeline.Item key={index}>
-                                    <Timeline.Badge>
-                                        <CircleOcticon icon={ChevronRightIcon} />
-                                    </Timeline.Badge>
-                                    <Timeline.Body>
-                                        {interest}
-                                    </Timeline.Body>
-                                </Timeline.Item>
-                            )
-                        })
-                        }
-                    </Timeline>
+                    <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+                        <Box sx={{flex: "50%"}}>
+                            <Timeline sx={{ml: "25%", mt: 3}}>
+                                {aboutMeInteterestsArray.map((interest, index) => {
+                                    return(
+                                        <Timeline.Item key={index}>
+                                            <Timeline.Badge>
+                                                <CircleOcticon icon={ChevronRightIcon} />
+                                            </Timeline.Badge>
+                                            <Timeline.Body>
+                                                {interest}
+                                            </Timeline.Body>
+                                        </Timeline.Item>
+                                    )
+                                })
+                                }
+                            </Timeline>
+                        </Box>
+                        <Box sx={{flex: "50%", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+                            <Text as={"p"}>
+                                Meanwhile, you can see me on many projects as a <b>contributor</b>, a <b>project manager</b> or as a <b>leader</b>. <br />
+                                I might also be a speaker at some events, a mentor for some students.
+                                But don&apos;t worry, I&apos;m not a workaholic.
+                            </Text>
+                            <Text as={"p"}>
+                                I also have some hobbies like writing & reading stories (mostly fantasy and sci-fi), creating & playing video games,
+                                listening to music (mostly Blues/Jazz and Lo-Fi) and experimenting with new technologies.
+                            </Text>
+                        </Box>
+                    </Box>
                 </Text>
-                <Text as={"p"}>
-                    Meanwhile, you can see me on many projects as a <b>contributor</b>, a <b>project manager</b> or as a <b>leader</b>. <br />
-                    I might also be a speaker at some events, a mentor for some students.
-                    But don&apos;t worry, I&apos;m not a workaholic.
-                </Text>
-                <Text as={"p"}>
-                    I also have some hobbies like writing & reading stories (mostly fantasy and sci-fi), creating & playing video games,
-                    listening to music (mostly Blues/Jazz and Lo-Fi) and experimenting with new technologies.
-                </Text>
+                
             </Box>
         </AboutSection>
     )
@@ -186,8 +195,9 @@ function EducationPart(){
     )
 }
 
-// The VolunteeringPart is the part containing the volunteering timeline.
-function VolunteeringPart(){
+// The VolunteeringAndInvestmentPart is the part containing the volunteering boxes
+// and my investments.
+function VolunteeringAndInvestmentPart(){
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const volunteeringPartStyle: BetterSystemStyleObject = {
@@ -199,18 +209,19 @@ function VolunteeringPart(){
     }
 
     return(
-        <AboutSection id="About.Volunteering" title="Volunteering">
-            Hey There! What did I volunteer again?
+        <AboutSection id="About.Volunteering" title="Volunteering & Investment">
+            <VolunteeringExperience />
+            <MyInvestment />
         </AboutSection>
     )
 
 }
 
-// Some useful components when writing the about page
+// Some useful components while writing the about page
 function SeparatingSlash({separatingColor}: {separatingColor?: string}){
     return(
         <Box sx={{ml: 1, mr: 1}}>
-            <Text sx={{color: separatingColor}}>/</Text>
+            <Text sx={{color: separatingColor, userSelect: "none"}}>/</Text>
         </Box>
     )
 }
