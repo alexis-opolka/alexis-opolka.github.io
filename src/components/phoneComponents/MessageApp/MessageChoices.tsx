@@ -1,5 +1,5 @@
 import { DiscussionChoicesInterface } from "./MessageAppInterfaces";
-import { authorPlayer, guestPlayer } from "./MessagePlayers";
+import { authorPlayer, bardPlayer, guestPlayer } from "./MessagePlayers";
 
 export const messageChoices: DiscussionChoicesInterface[] = [
     // The first choice and the default one
@@ -102,8 +102,8 @@ export const messageChoices: DiscussionChoicesInterface[] = [
           messagesToShow: [],
           actions: [
             {
-              type: "goToPageIndex",
-              target: "/projects"
+              type: "goToExternalPageIndex",
+              target: "https://github.com/alexis-opolka/"
             }
           ]
         },
@@ -118,5 +118,17 @@ export const messageChoices: DiscussionChoicesInterface[] = [
           ]
         }
       ]
+    },
+    {
+      type: "choices",
+      startMessages: [
+        {
+          "author": bardPlayer,
+          "content": "Hello, I'm testing a new way of calling pages.",
+          "type": "message"
+        }
+      ],
+      startActions: [],
+      options: []
     }
   ]

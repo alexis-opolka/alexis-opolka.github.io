@@ -4,6 +4,7 @@ import * as MessageAppInterfaces from "@/components/phoneComponents/MessageApp/M
 export const allowedChoiceActions = [
   // Actions to be taken related to the page
   "goToPageIndex",
+  "goToExternalPageIndex",
   // Actions to be taken related to the messages
   "displayMessage",
   "replaceMessage",
