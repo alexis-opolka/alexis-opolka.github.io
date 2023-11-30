@@ -1,0 +1,51 @@
+{
+    "content": [
+        {
+            "id": "polycloud-mtp-2023",
+            "name": "PolyCloud Montpellier 2023",
+            "category": "conference",
+            "description": "PolyCloud Montpellier 2023 is a conference about cloud computing and its applications. It is organized by the Polytech Montpellier students.",
+            "url": "https://polycloud.fr/"
+        },
+        {
+            "id": "google-io-2023",
+            "name": "Google I/O 2023",
+            "category": "conference",
+            "description": "Google I/O is an annual developer conference held by Google.",
+            "url": "https://io.google"
+        },
+        {
+            "id": "google-next-23",
+            "name": "Google Next'23",
+            "category": "conference",
+            "description": "Google Next is an annual conference organized by Google.",
+            "url": "https://cloud.withgoogle.com/next"
+        },
+        {
+            "id": "github-universe-2022",
+            "name": "Github Universe 2022",
+            "category": "conference",
+            "description": "Github Universe is an annual conference organized by Github.",
+            "url": "https://githubuniverse.com/"
+        },
+        {
+            "id": "iut-beziers-jpo-2023",
+            "name": "JPO IUT Béziers",
+            "category": "school-event",
+            "description": "Open days of the IUT of Béziers."
+        },
+        {
+            "id": "ffb-2023",
+            "name": "Festival Fantastique de Béziers (FFB) 2023",
+            "category": "school-event",
+            "description": "The Festival of Fantastic by the IUT of Béziers."
+        },
+        {
+            "id": "windev-28-test",
+            "name": "Q/A Testing of Windev 28 - PC SOFT",
+            "category": "other",
+            "description": "It was a one day session organised by PC SOFT to test their current tutorial and other aspects of their product Windev 28 from the point of view of students.",
+            "url": "https://windev.com"
+        }
+    ]
+}

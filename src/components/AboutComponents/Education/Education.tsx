@@ -40,7 +40,7 @@ export default function AboutMyEducation(){
                     diploma="General Certificate of Secondary Education"
                     grade="middle-school"
                     school="Marcel Pagnol, France"
-                    years={[2019, 2022]}
+                    years={[2019, 2015]}
                     mention={"Very Good mention"}
                 />
             </Timeline>
