@@ -2,7 +2,14 @@ import { NextResponse } from "next/server";
 import { ApolloClient, InMemoryCache, gql, ApolloQueryResult, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-const GITHUB_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+let GITHUB_TOKEN: string | undefined = "";
+
+try {
+  GITHUB_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
+} catch(error) {
+  GITHUB_TOKEN = process.env.TOKEN_GITHUB;
+}
+
 
 // Create the http link
 const httpLink = createHttpLink({
@@ -30,7 +37,7 @@ export const client = new ApolloClient({
 });
 
 export async function GET() {
-  const res: ApolloQueryResult<never> = await client
+  const res: ApolloQueryResult<never> | ApolloQueryResult<unknown> = await client
     .query({
       query: gql`
         query{
