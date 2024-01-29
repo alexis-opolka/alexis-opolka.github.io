@@ -90,7 +90,9 @@ export async function GET() {
     })
     .then((result) => {
       return result;
-    });
+    }).catch( (error) => {
+      return error;
+    })
 
   return NextResponse.json(res);
 }
