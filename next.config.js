@@ -6,10 +6,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    typedRoutes: true,
-    swcPlugins: [
-      ["@lingui/swc-plugin", {}],
-    ]
+    // typedRoutes: true,
+    // swcPlugins: [
+    //   ["@lingui/swc-plugin", {}],
+    // ]
   },
   webpack: function (config) {
     config.module.rules.push({
@@ -17,11 +17,6 @@ const nextConfig = {
       use: "yaml-loader",
     });
     return config;
-  },
-  i18n: {
-    // These are all the locales we want to support
-    locales: ["en", "fr"],
-    defaultLocale: "en"
   },
   output: undefined
 }
