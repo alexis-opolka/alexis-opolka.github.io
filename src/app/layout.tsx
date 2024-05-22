@@ -23,6 +23,7 @@ const inter = Inter({ subsets: ['latin'] })
 // was called before rendering `I18nProvider` Component
 let isDefaultLocaleSet = false;
 // Dynamically call translations inside a `useEffect` React hook
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const I18nApp = () => {
   useEffect(() => {
     // With this method we should dynamically load the required locale
@@ -31,7 +32,6 @@ const I18nApp = () => {
     isDefaultLocaleSet = true;
   }, [])
 }
-I18nApp();
 
 export default function RootLayout({children}:{children: React.ReactNode}){
 

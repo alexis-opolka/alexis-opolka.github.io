@@ -93,7 +93,7 @@ function MessageContactHeader(){
                         justifyContent: "center",
                         alignItems: "center"
                     }}>
-                        <Link href={"/test"}><Text sx={{
+                        <Link href={"/about"}><Text sx={{
                             color: "#ffffff",
                         }}>Alexis Opolka</Text></Link>
                     </Box>

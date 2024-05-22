@@ -22,7 +22,7 @@ export default function CloudTechCategory(){
                         skillName={"Shell"} /** We cheat a bit here, but shush */
                         displayName={"Kubernetes"}
                         skillLevel={40}
-                        skillDescription={"It speaks for itself, the administration of Linux systems. (Including RHEL)"}
+                        skillDescription={"Kubernetes, K8S or Kube."}
                     />
                     <SkillCard
                         type={"cloudtech"}

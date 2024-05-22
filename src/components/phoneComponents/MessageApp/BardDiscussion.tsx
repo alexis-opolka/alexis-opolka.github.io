@@ -181,7 +181,10 @@ export default function BardDiscussion(props: any){
         return addMessageToHistory(message);
       } else if (action.type === "goToPageIndex") {
         nextRouter.push(action.target);
-      } else {
+      } else if (action.type === "goToExternalPageIndex"){
+        nextRouter.push(action.target);
+      }
+      else {
         console.error(`The action "${action.type}" is not implemented!`);
       }
     }

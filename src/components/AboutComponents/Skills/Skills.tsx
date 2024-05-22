@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 // NextJS Imports
-import {Box, Heading, Link, ProgressBar, TabNav, Text, Tooltip, Truncate} from "@primer/react";
+import {Box, Heading, TabNav} from "@primer/react";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
-import { useEffect, useState, useCallback, useRef, ReactNode, MutableRefObject, RefObject } from "react";
+import { useEffect, useState, useCallback, useRef, RefObject } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 // Intern Imports
@@ -125,7 +125,7 @@ export default function SkillsPart(){
 
             { // This is the sub-page when the user is on the programming languages skills
               // Or when the user just arrived
-                (searchParams.get('skill') === 'programming-languages' || searchParams.get('skill') == null) && <SkillPanel skill={'programming-languages'} panelSetter={setSelectedSkill} SkillComponent={ProgrammingCategory} refVariable={activePanel} /> 
+                (searchParams.get('skill') === 'programming-languages' || searchParams.get('skill') == null) && <SkillPanel skill={'programming-languages'} panelSetter={setSelectedSkill} SkillComponent={ProgrammingCategory} refVariable={activePanel} isdefaultPane={searchParams.get('skill') === null} /> 
             }
             { // This is the sub-page when the user is on the sysadmin skills
                 searchParams.get('skill') === 'sysadmin' && <SkillPanel skill={'sysadmin'} panelSetter={setSelectedSkill} SkillComponent={SysAdminCategory} refVariable={activePanel}/>
@@ -148,11 +148,13 @@ function SkillPanel({
     panelSetter,
     SkillComponent,
     refVariable,
+    isdefaultPane,
 }: {
     skill: string,
     panelSetter: (panel: string) => void,
     SkillComponent: typeof ProgrammingCategory,
-    refVariable: RefObject<HTMLDivElement> | null | undefined
+    refVariable: RefObject<HTMLDivElement> | null | undefined,
+    isdefaultPane?: boolean
 }) {
     // We're setting the current selected panel with the current showed skill
     panelSetter(skill);
@@ -163,8 +165,10 @@ function SkillPanel({
             behavior: "smooth"
         }
 
-        if (refVariable?.current){
-            refVariable?.current.scrollIntoView(scrollIntoViewProps)
+        if (!isdefaultPane){
+            if (refVariable?.current){
+                refVariable?.current.scrollIntoView(scrollIntoViewProps)
+            }
         }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
