@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:publish": "yarn lint && lingui:compile && build",
     "start": "next start",
     "lint": "next lint",
     "sass:watch": "sass --watch src/sass:public/stylesheets",
     "lingui:extract": "lingui extract",
-    "lingui:compile": "lingui compile",
-    "publish": "lint && lingui:compile && build"
+    "lingui:compile": "lingui compile"
   },
   "dependencies": {
     "@apollo/client": "^3.8.1",
