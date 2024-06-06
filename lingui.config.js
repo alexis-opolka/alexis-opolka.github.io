@@ -4,9 +4,9 @@ import {formatter} from "@lingui/format-json";
 import nextConfig from "./next.config";
 
 module.exports = {
-  locales: nextConfig.i18n.locales,
+  locales: ["en", "fr"],
   pseudoLocale: "pseudo",
-  sourceLocale: nextConfig.i18n.defaultLocale,
+  sourceLocale: "en",
   fallbackLocales: {
     default: "en",
   },

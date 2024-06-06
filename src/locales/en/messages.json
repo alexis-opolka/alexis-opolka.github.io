@@ -8,7 +8,8 @@
         "src/app/test/page.tsx",
         9
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "1YVQ0U": {
     "translation": "This is the Footer Content.",
@@ -19,7 +20,8 @@
         "src/app/layout.tsx",
         99
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "+sEpl0": {
     "translation": "This is the main Content.",
@@ -30,6 +32,7 @@
         "src/app/page.tsx",
         13
       ]
-    ]
+    ],
+    "obsolete": true
   }
 }

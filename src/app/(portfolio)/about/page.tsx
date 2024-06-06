@@ -157,7 +157,6 @@ function AboutMePart(){
                         </Box>
                     </Box>
                 </Text>
-                
             </Box>
         </AboutSection>
     )

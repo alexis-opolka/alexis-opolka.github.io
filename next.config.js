@@ -5,12 +5,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    // typedRoutes: true,
-    // swcPlugins: [
-    //   ["@lingui/swc-plugin", {}],
-    // ]
-  },
+  experimental: {},
   webpack: function (config) {
     config.module.rules.push({
       test: /\.ya?ml$/,
@@ -18,7 +13,7 @@ const nextConfig = {
     });
     return config;
   },
-  output: undefined
-}
+  output: "standalone",
+};
 
 module.exports = nextConfig

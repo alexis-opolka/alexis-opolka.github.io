@@ -26,7 +26,7 @@ export default function VolunteeringExperience(){
             </Box>
             <Box id="About.Volunteering.Content.Experience" sx={{display: "flex", flexDirection: "row", justifyContent: "space-between", maxWidth: "100%", width: "100%"}}>
                 <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
-                    <VolunteeringCard association="Heimdall" occupiedFunction="Co-President" date={"1st August 2022 - Present"} />
+                    <VolunteeringCard association="Heimdall" occupiedFunction="Co-President" date={"1st August 2023 - December 2023"} />
                     <VolunteeringCard association="Petits Papiers d'Architecture" occupiedFunction="Technical Director" date={"1st August 2022 - Present"} />
                 </Box>
                 <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
