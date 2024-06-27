@@ -39,6 +39,14 @@ export async function GET(request: NextRequest) {
 
   const repository = request.nextUrl.pathname.split("/")[request.nextUrl.pathname.split("/").length-1]
 
+  // Early return in case the PAT is not defined
+  if (typeof GITHUB_TOKEN === "undefined") {
+    return new NextResponse(
+      "GitHub's PAT (Personal Access Token) is not recognized!",
+      { status: 401 }
+    );
+  }
+
   const res: ApolloQueryResult<never> = await client
     .query({
       query: gql`
@@ -83,7 +91,6 @@ export async function GET(request: NextRequest) {
       `,
     })
     .then((result) => {
-      // console.log("Result:", result)
       return result;
     })
     .catch((error) => {

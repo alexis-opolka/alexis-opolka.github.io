@@ -1,88 +1,72 @@
 import type { Icon } from "@primer/octicons-react";
 import { useTheme, Button, Octicon, Box, Header, PageLayout, Link, Text } from "@primer/react";
-import { SunIcon, MoonIcon } from '@primer/octicons-react';
 import { useState } from "react";
 import { IndexKind } from "typescript";
 import { BetterSystemStyleObject } from "@primer/react/lib/sx";
-
-
-// Variables & Constants
-export const themeSchemes: {
-  name: string,
-  value: string,
-  icon: Icon,
-  preferred?: boolean | undefined
-}[] = [
-  {
-    name: 'Light',
-    value: 'light',
-    icon: SunIcon
-  },
-  {
-    name: 'Dark',
-    value: 'dark',
-    icon: MoonIcon,
-    preferred: true,
-  },
-  {
-    name: 'Dark dimmed',
-    value: 'dark_dimmed',
-    icon: MoonIcon,
-  },
-  {
-    name: 'Light High Contrast',
-    value: 'light_high_contrast',
-    icon: SunIcon,
-  },
-  {
-    name: 'Dark High Contrast',
-    value: 'dark_high_contrast',
-    icon: MoonIcon,
-  },
-  {
-    name: 'Light Colorblind',
-    value: 'light_colorblind',
-    icon: SunIcon,
-  },
-  {
-    name: 'Dark Colorblind',
-    value: 'dark_colorblind',
-    icon: MoonIcon,
-  },
-  {
-    name: 'Light Tritanopia',
-    value: 'light_tritanopia',
-    icon: SunIcon,
-  },
-  {
-    name: 'Dark Tritanopia',
-    value: 'dark_tritanopia',
-    icon: MoonIcon,
-  },
-];
+import { defaultColorValueStorageKey, themeSchemes } from "./utils";
 
 export function ThemeToggleButton() {
+  
   const { setDayScheme, setNightScheme, setColorMode, colorMode } = useTheme();
-
   let defaultColorValue;
 
-  // As the `colorMode` can be changed, the default value
-  // should also change.
-  if (colorMode === "night") {
-    defaultColorValue = 1;
+  if (localStorage.getItem(defaultColorValueStorageKey) !== null) {
+    defaultColorValue = Number(localStorage.getItem(defaultColorValueStorageKey));
   } else {
-    defaultColorValue = 0;
-  }
-  // Using a stateful variable to store the index of the current used scheme
-  const [currentPrimerTheme, setCurrentPrimerTheme] = useState(defaultColorValue);
+    // As the `colorMode` can be changed, the default value
+    // should also change.
+    if (colorMode === "night" || colorMode === "dark") {
+      defaultColorValue = 1;
+    } else {
+      defaultColorValue = 0;
+    }
 
-  console.log(`[LOG]: The current PrimerTheme is ${currentPrimerTheme}, the ColorMode is ${colorMode} and the icon is ${themeSchemes[currentPrimerTheme].icon.displayName}`);
+    localStorage.setItem(defaultColorValueStorageKey, "defaultColorValue");
+  }
+
+
+  function HandleCurrentPrimerTheme(newThemeValue: number){
+
+    localStorage.setItem(defaultColorValueStorageKey, newThemeValue.toString());
+  }
+
+  function getCurrentPrimerTheme(): number {
+    const localStorageValue = localStorage.getItem(defaultColorValueStorageKey) || "-1";
+    const returnValue = Number(localStorageValue);
+
+    return returnValue;
+  }
+
+  console.log(`[LOG]: The current PrimerTheme is ${getCurrentPrimerTheme()}, the ColorMode is ${colorMode} and the icon is ${themeSchemes[getCurrentPrimerTheme()].icon.displayName}`);
+
+  function setSchemesValue(newColorMode: IndexKind) {
+    setDayScheme(themeSchemes[newColorMode].value);
+    setNightScheme(themeSchemes[newColorMode].value);
+  }
+  
+  return (
+    <ThemeToggleButtonComponent currentPrimerTheme={getCurrentPrimerTheme()}
+      colorModeHandler={setColorMode}
+      currentPrimerThemeHandler={HandleCurrentPrimerTheme}
+      schemesValueHandler={setSchemesValue}
+    />
+  )
+}
+
+function ThemeToggleButtonComponent({
+  currentPrimerTheme, colorModeHandler, currentPrimerThemeHandler, schemesValueHandler
+  }: {
+    currentPrimerTheme: number,
+    colorModeHandler: CallableFunction,
+    currentPrimerThemeHandler: CallableFunction,
+    schemesValueHandler: CallableFunction
+  }) {
 
   function toggleTheme() {
     console.log(`The current Theme is: ${currentPrimerTheme}!`)
     if (currentPrimerTheme === 0) {
       // The current Theme is Light and we should change it to Dark
-      setColorMode("dark");
+      colorModeHandler("dark");
 
       // Now that we set the color mode to be dark,
       // we need to know if the preferred theme is `Dark` (general GitHub dark theme)
@@ -93,28 +77,26 @@ export function ThemeToggleButton() {
       // TODO: Implement a system to automatically choose the preferred theme
       // Should be accessible to the user and be present in the `settings` page.
 
-      setCurrentPrimerTheme(1);
-      setSchemesValue(1);
+      currentPrimerThemeHandler(1);
+      schemesValueHandler(1);
     } else {
       // The current Theme is Dark and we should change it to Light
-      setColorMode("light");
+      colorModeHandler("light");
 
 
-      setCurrentPrimerTheme(0);
-      setSchemesValue(0)
+      currentPrimerThemeHandler(0);
+      schemesValueHandler(0)
     }
-  }
 
-  function setSchemesValue(newColorMode: IndexKind){
-    setDayScheme(themeSchemes[newColorMode].value);
-    setNightScheme(themeSchemes[newColorMode].value);
   }
 
   return (
-    <Button variant='invisible' onClick={toggleTheme} sx={{color: "header.divider"}}>
-      <Octicon icon={themeSchemes[currentPrimerTheme].icon} size={20} />
-    </Button>
-  )
+
+  <Button variant='invisible' onClick={() => {
+    toggleTheme()
+  }} sx={{ color: "header.divider" }}>
+    <Octicon icon={themeSchemes[currentPrimerTheme].icon} size={20} />
+  </Button>)
 }
 
 export function ThemePreview({scheme}: {scheme: {value: string, name: string, icon: Icon}}){
@@ -154,7 +136,7 @@ export function ThemePreview({scheme}: {scheme: {value: string, name: string, ic
   const footerTextColor = themeToPreview?.["neutral"]?.["emphasis"];
   const footerFontSize = themeToPreview?.["fontSizes"]?.["0"];
 
-  console.debug(themeToPreview, backgroundColor)
+  // console.debug(themeToPreview, backgroundColor)
 
   return(
       <Box id={`settings.Theme.ThemePreview.${scheme.value}`} sx={themePreviewStyle}>
