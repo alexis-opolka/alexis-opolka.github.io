@@ -1,4 +1,5 @@
-import { BaseStyles, ThemeProvider } from "@primer/react";
+import { BaseStyles, ThemeProvider, useTheme } from "@primer/react";
+import { getColorModeFromLocalStorage} from "@/components/ThemeComponents";
 
 export default function GithubPrimerWrapper({
   children
@@ -6,8 +7,12 @@ export default function GithubPrimerWrapper({
   children: React.ReactNode
 }){
 
+  const colorValue = getColorModeFromLocalStorage();  
+
+  console.log("At loading the color value is:", colorValue);
+
   return(
-    <ThemeProvider colorMode={"night"}>
+    <ThemeProvider colorMode={colorValue !== "N/A" ? colorValue : undefined}>
       <BaseStyles>
         {children}
       </BaseStyles>
