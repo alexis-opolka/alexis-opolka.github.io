@@ -1,8 +1,5 @@
-import type { Icon } from "@primer/octicons-react";
-import { useTheme, Button, Octicon, Box, Header, PageLayout, Link, Text } from "@primer/react";
-import { useState } from "react";
+import { useTheme, Button, Octicon } from "@primer/react";
 import { IndexKind } from "typescript";
-import { BetterSystemStyleObject } from "@primer/react/lib/sx";
 import { defaultColorValueStorageKey, themeSchemes } from "./utils";
 
 export function ThemeToggleButton() {
@@ -97,96 +94,4 @@ function ThemeToggleButtonComponent({
   }} sx={{ color: "header.divider" }}>
     <Octicon icon={themeSchemes[currentPrimerTheme].icon} size={20} />
   </Button>)
-}
-
-export function ThemePreview({scheme}: {scheme: {value: string, name: string, icon: Icon}}){
-
-  const themePreviewStyle: BetterSystemStyleObject = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    border: "1px solid",
-    borderColor: "border.default",
-    borderRadius: "1rem",
-    margin: "1rem",
-    width: "20%",
-    height: "20%",
-    bg: "canvas.inset"
-  }
-  // We are referencing all the theme values from the theme to preview
-  const {theme} = useTheme();
-  const themeToPreview = theme?.["colorSchemes"]?.[scheme.value]?.["colors"];
-
-  // Styles for the whole page
-  const backgroundColor = themeToPreview?.["canvas"]?.["default"];
-  const fgColor = themeToPreview?.["fg"]?.["default"];
-
-  // Styles for the header
-  const headerBgColor = themeToPreview?.["header"]?.["bg"];
-  const headerTextColor = themeToPreview?.["header"]?.["text"];
-  const headerFontSize = themeToPreview?.["fontSizes"]?.["2"];
-
-  // Styles for the body
-  const contentTextColor = themeToPreview?.["fg"]?.["default"];
-  const contentLinkColor = themeToPreview?.["fg"]?.["accent"];
-
-  // Styles for the footer
-  const footerBgColor = themeToPreview?.["footer"]?.["bg"];
-  const footerTextColor = themeToPreview?.["neutral"]?.["emphasis"];
-  const footerFontSize = themeToPreview?.["fontSizes"]?.["0"];
-
-  // console.debug(themeToPreview, backgroundColor)
-
-  return(
-      <Box id={`settings.Theme.ThemePreview.${scheme.value}`} sx={themePreviewStyle}>
-        <Text> {scheme.name} </Text>
-        <Box>
-          <PageLayout sx={{
-            backgroundColor: backgroundColor,
-            color: fgColor,
-            padding: 0,
-            borderRadius: "1rem",
-            border: "1px solid",
-            borderColor: "border.default",
-            width: "100%",
-            top: 0,
-            userSelect: "none",
-          }}>
-            <PageLayout.Header>
-              <Header sx={{
-                backgroundColor: headerBgColor,
-                color: headerTextColor,
-                border: "1px solid",
-                borderColor: "border.default",
-                borderTopLeftRadius: "1rem",
-                borderTopRightRadius: "1rem",
-                fontSize: headerFontSize,
-              }}>
-                This is the Header
-              </Header>
-            </PageLayout.Header>
-            <PageLayout.Content sx={{
-              backgroundColor: backgroundColor,
-              color: contentTextColor,
-              padding: 15,
-            }}>
-              This is the Content with a <Link href={`#settings.Theme.ThemePreview.${scheme.value}`} sx={{
-                color: contentLinkColor
-              }}>
-                link
-              </Link>.
-            </PageLayout.Content>
-            <PageLayout.Footer sx={{
-              backgroundColor: footerBgColor,
-              color: footerTextColor,
-              padding: 15,
-              fontSize: footerFontSize,
-            }} divider={"line"}>
-              <Text as={"span"} sx={{fontSize: footerFontSize}}>Copyright &copy; 2023 Preview Footer - All Rights Reserved</Text>
-            </PageLayout.Footer>
-          </PageLayout>
-        </Box>
-      </Box>
-  )
 }
