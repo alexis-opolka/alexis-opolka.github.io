@@ -30,8 +30,8 @@ export default function VolunteeringExperience(){
                     <VolunteeringCard association="Petits Papiers d'Architecture" occupiedFunction="Technical Director" date={"1st August 2022 - Present"} />
                 </Box>
                 <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
-                    <VolunteeringCard association="Maison des Lycéens du Lycée Marc Bloch" occupiedFunction="President" date={"1st August 2022 - Present"} />
-                    <VolunteeringCard association="Foyer Social et Educatif (FSE) du Collège Marcel Pagnol" occupiedFunction="Vice-President" date={"1st August 2022 - Present"} />
+                    <VolunteeringCard association="Maison des Lycéens du Lycée Marc Bloch" occupiedFunction="President" date={"October 2019 - January 2022"} />
+                    <VolunteeringCard association="Foyer Social et Educatif (FSE) du Collège Marcel Pagnol" occupiedFunction="Vice-President" date={"October 2016 - July 2019"} />
                 </Box>
             </Box>
         </Box>

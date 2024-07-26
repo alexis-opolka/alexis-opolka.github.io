@@ -67,7 +67,7 @@ function IntroductionPart(){
                 <Box id="About.Introduction.Paragraph" sx={{padding: 15, margin: 2}}>
                     <Text sx={{color: "fg.default"}}>
                         <Heading as="h5" sx={{fontSize: 4}}>Hi,</Heading>
-                        A 2nd year Student-Entrepreneur in Networks & Telecommunications at the IUT Béziers, France.
+                        A 3rd year Student-Entrepreneur in Networks & Telecommunications at the IUT Béziers, France.
                     </Text>
                 </Box>
             </Box>
@@ -123,17 +123,23 @@ function AboutMePart(){
         <AboutSection id="About.AboutMe" title="About Me">
             <Box id="About.AboutMe.Paragraph" sx={{padding: 15, margin: 2}}>
                 <Text as={"p"}>
-                    I&apos;m a french student with a passion for technology, arts and entrepreuneurship. <br />
-                    My main goals are to become a DevOps Engineer, to create my own company and contribute to the society as a whole. <br />
+                    I&apos;m a french student with a passion for technology, arts and entrepreneurship. <br/>
+                    My main goals are to become a DevOps Engineer, to create my own company and contribute to the
+                    society as a whole. <br/>
                     I&apos;m interested in many things (if not a lot), but for the most part, it&apos;s about:
-                    <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+                    <Box sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center"
+                    }}>
                         <Box sx={{flex: "50%"}}>
                             <Timeline sx={{ml: "25%", mt: 3}}>
                                 {aboutMeInteterestsArray.map((interest, index) => {
-                                    return(
+                                    return (
                                         <Timeline.Item key={index}>
                                             <Timeline.Badge>
-                                                <CircleOcticon icon={ChevronRightIcon} />
+                                                <CircleOcticon icon={ChevronRightIcon}/>
                                             </Timeline.Badge>
                                             <Timeline.Body>
                                                 {interest}
@@ -144,18 +150,69 @@ function AboutMePart(){
                                 }
                             </Timeline>
                         </Box>
-                        <Box sx={{flex: "50%", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+                        <Box sx={{
+                            flex: "50%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between"
+                        }}>
                             <Text as={"p"}>
-                                Meanwhile, you can see me on many projects as a <b>contributor</b>, a <b>project manager</b> or as a <b>leader</b>. <br />
+                                Meanwhile, you can see me on many projects as a <b>contributor</b>, a <b>project
+                                manager</b> or as a <b>leader</b>. <br/>
                                 I might also be a speaker at some events, a mentor for some students.
                                 But don&apos;t worry, I&apos;m not a workaholic.
                             </Text>
                             <Text as={"p"}>
-                                I also have some hobbies like writing & reading stories (mostly fantasy and sci-fi), creating & playing video games,
-                                listening to music (mostly Blues/Jazz and Lo-Fi) and experimenting with new technologies.
+                                I also have some hobbies like writing & reading stories (mostly fantasy and sci-fi),
+                                creating & playing video games,
+                                listening to music (mostly Blues/Jazz and Lo-Fi) and experimenting with new
+                                technologies.
                             </Text>
                         </Box>
                     </Box>
+                </Text>
+            </Box>
+
+            <Box id="About.AboutMe.MoreInDepth" sx={{padding: 15, margin: 2}}>
+                <Text as={"p"}>
+                    <Heading>
+                        More In Depth
+                    </Heading>
+
+                    <Text as={"p"}>
+                        As any human being can&apos;t be described with so little words, I offer you a more in-depth
+                        presentation of myself. <br/>
+                        I won&apos;t be saying &quot;boring&quot; things such as my birth place, my family, etc. <br/>
+                        I want this paragraph to be much more personal, I want this paragraph to help you in
+                        understanding me and my thoughts process, if you would like, of course.
+                    </Text>
+
+                    <Text as={"p"}>
+                        I&apos;m curious and intrigued by many, many things, here is a non-exhaustive list of subjects I&apos;m
+                        interested in:
+
+                        {/*I love arts, philosophy, mythology, theology, history, psychology, politics, biology, democratic constitutions, republic constitutions, medical knowledge, military knowledge*/}
+
+                        <Box sx={{overflowY: "scroll", minHeight: "2vh", maxHeight: "20vh"}}>
+                            <ul>
+                                <li>Arts</li>
+                                <li>Philosophy</li>
+                                <li>Mythology</li>
+                                <li>Theology</li>
+                                <li>History</li>
+                                <li>Psychology</li>
+                                <li>Physiology</li>
+                                <li>Biology</li>
+                                <li>Politics</li>
+                                <li>Democratic and Republic Constitutions</li>
+                                <li>Medical Knowledge</li>
+                                <li>Military Knowledge</li>
+                                <li>Astronomy</li>
+                                <li>Science</li>
+                            </ul>
+                        </Box>
+
+                    </Text>
                 </Text>
             </Box>
         </AboutSection>

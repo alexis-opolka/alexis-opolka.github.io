@@ -30,7 +30,7 @@
         },
         {
             "id": "iut-beziers-jpo-2023",
-            "name": "JPO IUT Béziers",
+            "name": "JPO IUT Béziers 2023",
             "category": "school-event",
             "description": "Open days of the IUT of Béziers."
         },
@@ -46,6 +46,38 @@
             "category": "other",
             "description": "It was a one day session organised by PC SOFT to test their current tutorial and other aspects of their product Windev 28 from the point of view of students.",
             "url": "https://windev.com"
+        },
+        {
+            "id": "github-universe-2023",
+            "name": "Github Universe 2023",
+            "category": "conference",
+            "description": "Github Universe is an annual conference organized by Github.",
+            "url": "https://githubuniverse.com/"
+        },
+        {
+            "id": "polycloud-2024",
+            "name": "PolyCloud 2024",
+            "category": "conference",
+            "description": "This year Polycloud was quite interesting and for my 2nd year of this conference I went there with one of my professors and some of my colleagues and friends!",
+            "url": "https://polycloud.fr"
+        },
+        {
+            "id": "iut-beziers-jpo-2024",
+            "name": "JPO IUT Béziers 2024",
+            "category": "school-event",
+            "description": "Open days of the IUT of Béziers."
+        },
+        {
+            "id": "ffb-2024",
+            "name": "Festival Fantastique de Béziers (FFB) 2024",
+            "category": "school-event",
+            "description": "The Festival of Fantastic by the IUT of Béziers. I was part of the organising committee, in charge of the development of the electronic tombola."
+        },
+        {
+            "id": "ffb-2025",
+            "name": "Festival Fantastique de Béziers (FFB) 2025",
+            "category": "school-event",
+            "description": "The Festival of Fantastic by the IUT of Béziers. I was part of the organising committee, in charge of the development of the electronic tombola."
         }
     ]
 }
