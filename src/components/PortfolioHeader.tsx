@@ -1,17 +1,39 @@
 
 // NextJS Imports
 import { Header, Octicon, Button } from "@primer/react";
-import { GearIcon } from "@primer/octicons-react";
+import {GearIcon, SparkleFillIcon, StarIcon} from "@primer/octicons-react";
+import {Dispatch, SetStateAction} from "react";
 
 // Intern Imports
 import { ThemeToggleButton } from "@/components/ThemeComponents";
 import { LinguiLocaleChangeForm } from "./wrappers/LinguiJSWrappers";
 
 export default function PortfolioHeader({
-  breadCrumbs
+  breadCrumbs,
+  stateControls
 }: {
-  breadCrumbs: JSX.Element
+  breadCrumbs: JSX.Element,
+  stateControls?: [string, Dispatch<SetStateAction<string>>]
 }){
+
+  let dynamicSwitchButton = <span></span>;
+
+  if (typeof stateControls !== "undefined") {
+      const [stateControlVariable, stateControlCallable] = stateControls ?? ["", null];
+      const isStateStatic = stateControlVariable === "static";
+
+      dynamicSwitchButton =
+          <Header.Item>
+            <Button onClick={() => {
+                isStateStatic ? stateControlCallable("dynamic") : stateControlCallable("static")
+            }}>
+                <Octicon icon={isStateStatic ? SparkleFillIcon : StarIcon} />
+            </Button>
+        </Header.Item>
+  }
+
+
+
   return(
     <Header sx={{
       position: 'sticky',
@@ -28,6 +50,7 @@ export default function PortfolioHeader({
         {breadCrumbs}
       </Header.Item>
       <Header.Item sx={{ mr: 0 }}>
+          {dynamicSwitchButton}
         <Header.Item sx={{ mr: 2 }}>
           <LinguiLocaleChangeForm />
         </Header.Item>

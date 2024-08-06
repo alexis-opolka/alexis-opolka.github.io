@@ -1,0 +1,75 @@
+
+@use "/src/content/fonts/sourceCodePro.font.sass" as fts
+
+$border-neon-color: #06B6C3
+$color-neon: #d6eee9
+$color-neon-sub: #FB605B
+$background-color: #010409
+
+
+.phoneAvatarHolder
+
+  display: flex
+  flex-direction: column
+  justify-content: start
+  align-items: start
+  padding: 15px
+  margin-left: 5em
+
+
+  img
+
+    position: fixed
+    top: 18%
+    left: 5%
+
+
+// NCPD Record Area
+
+.NCPDTitle
+  font-family: fts.$font-source-code-pro
+  color: $color-neon-sub
+  font-size: 85px
+  text-align: center
+  text-decoration: 6px underline
+
+.NCPDRecordLayout
+
+  margin-top: 6vh
+
+  display: flex
+  align-items: center
+  justify-content: start
+  flex-direction: row
+
+  overflow-y: auto
+  scroll-snap-type: y mandatory
+  animation-timeline: scroll(y)
+
+  .CyberSections
+    scroll-snap-align: start
+
+
+  .NCPDRecordTable
+    margin-left: 20em
+    font-size: 35px
+
+
+    tr
+
+      > td:nth-child(odd)
+
+        color: $color-neon-sub
+        text-align: left
+        //margin-right: 4em
+
+
+      > td:not(:empty):nth-child(odd)::after
+          content: ":"
+          color: $color-neon-sub
+          padding: 5px
+
+      > td:nth-child(even)
+        color: $border-neon-color
+        text-align: right
+        border-right: 6em solid $background-color
